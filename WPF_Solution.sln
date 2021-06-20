@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZhaoXi", "ZhaoXi\ZhaoXi.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\ConsoleApp1.csproj", "{917E2F83-F7AD-4BC9-A1D0-2F65710721F2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF_Test", "WPF_Test\WPF_Test.csproj", "{BF336268-0E92-4DDF-BCAC-387BD39C9BE3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{917E2F83-F7AD-4BC9-A1D0-2F65710721F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{917E2F83-F7AD-4BC9-A1D0-2F65710721F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{917E2F83-F7AD-4BC9-A1D0-2F65710721F2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF336268-0E92-4DDF-BCAC-387BD39C9BE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF336268-0E92-4DDF-BCAC-387BD39C9BE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF336268-0E92-4DDF-BCAC-387BD39C9BE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF336268-0E92-4DDF-BCAC-387BD39C9BE3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
