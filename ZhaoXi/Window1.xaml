@@ -7,12 +7,19 @@
         mc:Ignorable="d"
         Title="Window1" Height="450" Width="800">
     <Grid x:Name="grid">
-        <Border x:Name="border">
-            <TextBlock Height="50" 
-                        Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor,AncestorType=Border,AncestorLevel=1},
-                        Path=Name
-                }" Margin="337,185,248.6,185"
+        <Border x:Name="myborder">
+            <Border x:Name="border" Height="200" Width="200"
+               Background="GreenYellow" BorderThickness="3" BorderBrush="Red"
+                CornerRadius="5" >
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="5" Color="LightGray" ShadowDepth="12"/>
+            </Border.Effect>
+            <TextBlock Width="120" Height="50" TextAlignment="Center"
+                       Text="{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorLevel=2,AncestorType=Border},
+               Path=Name
+                }"
                        />
+        </Border>
         </Border>
     </Grid>
 </Window>
