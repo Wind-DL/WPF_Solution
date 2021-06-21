@@ -34,7 +34,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data">
+      <HintPath>E:\project\神钢稼动率查询\设备可视化系统客户端_2021-05-25\bin\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -72,6 +76,8 @@
     </Compile>
     <Compile Include="Common\CommandBase.cs" />
     <Compile Include="Common\NotifyProperty.cs" />
+    <Compile Include="DataService\DataBase.cs" />
+    <Compile Include="EnityDto\UserInfor.cs" />
     <Compile Include="Model\LoginModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="View\LogInView.xaml.cs">
