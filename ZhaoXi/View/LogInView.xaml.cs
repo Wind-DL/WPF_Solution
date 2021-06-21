@@ -23,5 +23,13 @@ namespace ZhaoXi.View
         {
             InitializeComponent();
         }
+
+        private void Border_MouseMove(object sender, MouseEventArgs e)
+        {
+            if(e.LeftButton==MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
+        }
     }
 }

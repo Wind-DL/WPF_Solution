@@ -9,9 +9,34 @@
     <Window.Resources>
         <ResourceDictionary Source="/Assets/Styles/DefaultStyle.xaml"/>
     </Window.Resources>
-    <Border Background="#FF5078E8" CornerRadius="10" BorderThickness="3" OpacityMask="Black">
-        <Button x:Name="closeLogin" VerticalAlignment="Top" HorizontalAlignment="Right" Height="25" Width="25"
-                Margin="0,8,8,0" Template="{StaticResource colseStyle}">
-        </Button>
-    </Border>
+    <Grid>
+        <Border Background="#FF5078E8" CornerRadius="10" BorderThickness="3" 
+            OpacityMask="Black" MouseMove="Border_MouseMove">
+            <Button x:Name="closeLogin" VerticalAlignment="Top" HorizontalAlignment="Right" Height="25" Width="25"
+                    Margin="0,8,8,0" Template="{StaticResource colseStyle}">
+            </Button>
+        </Border>
+        <Grid VerticalAlignment="Top" Margin="0,40,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+                <RowDefinition Height="60"/>
+            </Grid.RowDefinitions>
+            <Image Source="/ZhaoXi;component/Assets/Images/1.jpg"/>
+            <TextBox Width="250" Height="40" Background="Red" Grid.Row="1"/>
+            <TextBox Width="250" Height="40" Background="Red" Grid.Row="2"/>
+            <TextBox Width="250" Height="40" Background="Red" Grid.Row="3"/>
+            <Button Width="200" Height="40" Background="Red" Grid.Row="4">
+                <Button.Template>
+                    <ControlTemplate>
+                        <Border Width="{TemplateBinding Width}" Height="{TemplateBinding Height}"
+                                Background="{TemplateBinding Background}" CornerRadius="10"
+                                />
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+        </Grid>
+    </Grid>
 </Window>
