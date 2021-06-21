@@ -4,19 +4,25 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ZhaoXi.View"
-        mc:Ignorable="d" 
+        mc:Ignorable="d"  x:Name="login"
         Title="LogInView" Height="500" Width="350" AllowsTransparency="True" WindowStyle="None" Background="{x:Null}">
     <Window.Resources>
         <ResourceDictionary Source="/Assets/Styles/DefaultStyle.xaml"/>
     </Window.Resources>
     <Grid>
-        <Border Background="#FF5078E8" CornerRadius="10" BorderThickness="3" 
+        <Border Background="#FF94AEF7" CornerRadius="10" BorderThickness="3" 
             OpacityMask="Black" MouseMove="Border_MouseMove">
             <Button x:Name="closeLogin" VerticalAlignment="Top" HorizontalAlignment="Right" Height="25" Width="25"
-                    Margin="0,8,8,0" Template="{StaticResource colseStyle}">
+                    Margin="0,8,8,0" Style="{StaticResource colseStyle}" Command="{Binding LoginModel.CloseCommand}"
+                    CommandParameter="{Binding ElementName=login}"
+                    >
             </Button>
         </Border>
         <Grid VerticalAlignment="Top" Margin="0,40,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="13*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="150"/>
                 <RowDefinition Height="60"/>
@@ -24,16 +30,60 @@
                 <RowDefinition Height="60"/>
                 <RowDefinition Height="60"/>
             </Grid.RowDefinitions>
-            <Image Source="/ZhaoXi;component/Assets/Images/1.jpg"/>
-            <TextBox Width="250" Height="40" Background="Red" Grid.Row="1"/>
-            <TextBox Width="250" Height="40" Background="Red" Grid.Row="2"/>
-            <TextBox Width="250" Height="40" Background="Red" Grid.Row="3"/>
-            <Button Width="200" Height="40" Background="Red" Grid.Row="4">
-                <Button.Template>
-                    <ControlTemplate>
-                        <Border Width="{TemplateBinding Width}" Height="{TemplateBinding Height}"
-                                Background="{TemplateBinding Background}" CornerRadius="10"
+            <TextBlock FontFamily="./Assets/Fonts/#iconfont" Text="&#xe607;" FontSize="20" Width="30" Height="30" Margin="160,60,135,60.4"/>
+            <TextBox Width="250" Height="40" Background="#FF5BF082" Grid.Row="1" Margin="50,9.6,25,10.4" Text="{Binding LoginModel.UserName}">
+                <TextBox.Template>
+                    <ControlTemplate TargetType="TextBox">
+                        <Border Background="LightCyan" CornerRadius="5">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="账号:" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18"
                                 />
+                                <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden"
+                                              VerticalAlignment="Center" HorizontalAlignment="Center"
+                                              Grid.Column="1"/>
+
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </TextBox.Template>
+            </TextBox>
+            <PasswordBox Width="250" Height="40" Background="#FF5BF082" Grid.Row="2" Margin="50,9.6,25,10.4">
+                <PasswordBox.Template>
+                    <ControlTemplate TargetType="PasswordBox">
+                        <Border Background="LightCyan" CornerRadius="5">
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Text="密码:" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18"
+                                />
+                                <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden"
+                                              VerticalAlignment="Center" HorizontalAlignment="Center"
+                                              Grid.Column="1"/>
+
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </PasswordBox.Template>
+            </PasswordBox>
+            <TextBox Width="250" Height="40" Background="#FF5BF082" Grid.Row="3" Margin="50,9.6,25,10.4"/>
+            <Button Width="200" Height="40" Background="#FF5BF082" Grid.Row="4" Content="登 录" FontSize="20"
+                    VerticalAlignment="Center" HorizontalAlignment="Center" Margin="75,9.6,50,10.4"
+                  
+                    >
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border Width="{TemplateBinding Width}" Height="{TemplateBinding Height}"
+                                Background="{TemplateBinding Background}" CornerRadius="10">
+                            <ContentPresenter VerticalAlignment="{TemplateBinding VerticalAlignment}"
+                                              HorizontalAlignment="{TemplateBinding HorizontalAlignment}"
+                                              />
+                        </Border>
                     </ControlTemplate>
                 </Button.Template>
             </Button>

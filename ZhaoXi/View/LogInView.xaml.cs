@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using ZhaoXi.ViewModel;
 
 namespace ZhaoXi.View
 {
@@ -22,6 +23,8 @@ namespace ZhaoXi.View
         public LogInView()
         {
             InitializeComponent();
+            LoginViewModel viewModel = new LoginViewModel();
+            DataContext = viewModel;
         }
 
         private void Border_MouseMove(object sender, MouseEventArgs e)
