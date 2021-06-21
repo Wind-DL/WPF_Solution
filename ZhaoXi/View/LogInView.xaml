@@ -1,0 +1,17 @@
+﻿<Window x:Class="ZhaoXi.View.LogInView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ZhaoXi.View"
+        mc:Ignorable="d" 
+        Title="LogInView" Height="500" Width="350" AllowsTransparency="True" WindowStyle="None" Background="{x:Null}">
+    <Window.Resources>
+        <ResourceDictionary Source="/Assets/Styles/DefaultStyle.xaml"/>
+    </Window.Resources>
+    <Border Background="#FF5078E8" CornerRadius="10" BorderThickness="3" OpacityMask="Black">
+        <Button x:Name="closeLogin" VerticalAlignment="Top" HorizontalAlignment="Right" Height="25" Width="25"
+                Margin="0,8,8,0" Template="{StaticResource colseStyle}">
+        </Button>
+    </Border>
+</Window>
