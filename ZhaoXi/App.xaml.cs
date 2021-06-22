@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using ZhaoXi.View;
 
 namespace ZhaoXi
 {
@@ -13,5 +14,14 @@ namespace ZhaoXi
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+            if (new LogInView().ShowDialog() == true)
+            {
+                new MainWindow().ShowDialog();
+            }
+            Application.Current.Shutdown();
+        }
     }
 }

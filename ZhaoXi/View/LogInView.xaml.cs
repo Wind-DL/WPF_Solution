@@ -23,8 +23,7 @@ namespace ZhaoXi.View
         public LogInView()
         {
             InitializeComponent();
-            LoginViewModel viewModel = new LoginViewModel();
-            DataContext = viewModel;
+            DataContext = new LoginViewModel();
         }
 
         private void Border_MouseMove(object sender, MouseEventArgs e)

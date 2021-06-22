@@ -37,6 +37,10 @@ namespace ZhaoXi.ViewModel
                     {
                         _loginModel.ErrorMessage = "账号或者密码错误";
                     }
+                    else
+                    {
+                        Application.Current.Dispatcher.Invoke(() => { (obj as Window).DialogResult = true; });
+                    }
                 });
             });
         }

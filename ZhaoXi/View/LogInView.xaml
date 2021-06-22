@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:ZhaoXi.View"
         xmlns:model="clr-namespace:ZhaoXi.Model"
         mc:Ignorable="d"  x:Name="login"
-        Title="LogInView" Height="500" Width="350" AllowsTransparency="True" WindowStyle="None" Background="{x:Null}">
+        Title="LogInView" Height="500" Width="350" AllowsTransparency="True" 
+        WindowStyle="None" Background="{x:Null}">
     <Window.Resources>
         <ResourceDictionary Source="/Assets/Styles/DefaultStyle.xaml"/>
     </Window.Resources>
@@ -78,7 +79,7 @@
             <TextBox Width="250" Height="40" Background="#FF5BF082" Grid.Row="3" Margin="50,9.6,25,10.4" Text="{Binding LoginModel.ErrorMessage}"/>
             <Button Width="200" Height="40" Background="#FF5BF082" Grid.Row="4" Content="登 录" FontSize="20"
                     VerticalAlignment="Center" HorizontalAlignment="Center" Margin="75,9.6,50,10.4"
-                    Command="{Binding LoginModel.LoginCommand}" CommandParameter="{Binding ElementName=passwordBox}"
+                    Command="{Binding LoginModel.LoginCommand}" CommandParameter="{Binding ElementName=login}"
                     >
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
