@@ -77,6 +77,7 @@
     <Compile Include="Common\CommandBase.cs" />
     <Compile Include="Common\MD5Hepler.cs" />
     <Compile Include="Common\NotifyProperty.cs" />
+    <Compile Include="Common\NotNullValidationRule.cs" />
     <Compile Include="DataService\DataBase.cs" />
     <Compile Include="EnityDto\UserInfor.cs" />
     <Compile Include="Model\LoginModel.cs" />
