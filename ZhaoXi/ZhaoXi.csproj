@@ -75,10 +75,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Common\CommandBase.cs" />
+    <Compile Include="Common\MD5Hepler.cs" />
     <Compile Include="Common\NotifyProperty.cs" />
     <Compile Include="DataService\DataBase.cs" />
     <Compile Include="EnityDto\UserInfor.cs" />
     <Compile Include="Model\LoginModel.cs" />
+    <Compile Include="Model\PasswordHelper.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="View\LogInView.xaml.cs">
       <DependentUpon>LogInView.xaml</DependentUpon>

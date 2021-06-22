@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ZhaoXi.View"
+        xmlns:model="clr-namespace:ZhaoXi.Model"
         mc:Ignorable="d"  x:Name="login"
         Title="LogInView" Height="500" Width="350" AllowsTransparency="True" WindowStyle="None" Background="{x:Null}">
     <Window.Resources>
@@ -31,7 +32,7 @@
                 <RowDefinition Height="60"/>
             </Grid.RowDefinitions>
             <TextBlock FontFamily="./Assets/Fonts/#iconfont" Text="&#xe607;" FontSize="20" Width="30" Height="30" Margin="160,60,135,60.4"/>
-            <TextBox Width="250" Height="40" Background="#FF5BF082" Grid.Row="1" Margin="50,9.6,25,10.4" Text="{Binding LoginModel.UserName}">
+            <TextBox Width="250" Height="40" Background="#FF5BF082" Grid.Row="1" Margin="50,9.6,25,10.4">
                 <TextBox.Template>
                     <ControlTemplate TargetType="TextBox">
                         <Border Background="LightCyan" CornerRadius="5">
@@ -42,16 +43,18 @@
                                 </Grid.ColumnDefinitions>
                                 <TextBlock Text="账号:" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18"
                                 />
-                                <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden"
-                                              VerticalAlignment="Center" HorizontalAlignment="Center"
-                                              Grid.Column="1"/>
-
+                                <TextBox Width="200" Height="35" Grid.Column="1" BorderThickness="0"
+                                         TextAlignment="Center" VerticalContentAlignment="Center" 
+                                         HorizontalContentAlignment="Left" FontSize="20"
+                                         Text="{Binding LoginModel.UserName}"
+                                         />
                             </Grid>
                         </Border>
                     </ControlTemplate>
                 </TextBox.Template>
             </TextBox>
-            <PasswordBox Width="250" Height="40" Background="#FF5BF082" Grid.Row="2" Margin="50,9.6,25,10.4">
+            <PasswordBox Width="250" Height="40" Background="#FF5BF082" Grid.Row="2" Margin="51,9.6,24.6,10.4"
+                         >
                 <PasswordBox.Template>
                     <ControlTemplate TargetType="PasswordBox">
                         <Border Background="LightCyan" CornerRadius="5">
@@ -60,21 +63,22 @@
                                     <ColumnDefinition Width="50"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Text="密码:" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18"
+                                <TextBlock Text="密码:" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18" Margin="5,9,3.6,8"
                                 />
-                                <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden"
-                                              VerticalAlignment="Center" HorizontalAlignment="Center"
-                                              Grid.Column="1"/>
-
+                                <PasswordBox Width="200" Height="35" Grid.Column="1" BorderThickness="0"
+                                         VerticalContentAlignment="Center" x:Name="passwordBox"
+                                         HorizontalContentAlignment="Left" FontSize="20"
+                                         model:PasswordHelper.Password="{Binding LoginModel.Password, Mode=TwoWay}"
+                                         />
                             </Grid>
                         </Border>
                     </ControlTemplate>
                 </PasswordBox.Template>
             </PasswordBox>
-            <TextBox Width="250" Height="40" Background="#FF5BF082" Grid.Row="3" Margin="50,9.6,25,10.4"/>
+            <TextBox Width="250" Height="40" Background="#FF5BF082" Grid.Row="3" Margin="50,9.6,25,10.4" Text="{Binding LoginModel.ErrorMessage}"/>
             <Button Width="200" Height="40" Background="#FF5BF082" Grid.Row="4" Content="登 录" FontSize="20"
                     VerticalAlignment="Center" HorizontalAlignment="Center" Margin="75,9.6,50,10.4"
-                  
+                    Command="{Binding LoginModel.LoginCommand}" CommandParameter="{Binding ElementName=passwordBox}"
                     >
                 <Button.Template>
                     <ControlTemplate TargetType="Button">
@@ -86,6 +90,16 @@
                         </Border>
                     </ControlTemplate>
                 </Button.Template>
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Opacity" Value="0.8"/>
+                            </Trigger>
+                        </Style.Triggers>
+                        <Style.Setters></Style.Setters>
+                    </Style>
+                </Button.Style>
             </Button>
         </Grid>
     </Grid>

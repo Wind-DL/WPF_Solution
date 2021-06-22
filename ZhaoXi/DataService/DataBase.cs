@@ -7,15 +7,16 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data;
 using MySql.Data.MySqlClient;
+using ZhaoXi.Common;
 using ZhaoXi.EnityDto;
 
 namespace ZhaoXi.DataService
 {
     class DataBase
     {
-        private DataBase _dataBase;
+        private static DataBase _dataBase;
         private DataBase() { }
-        public DataBase GetInstanse()
+        public static DataBase GetInstanse()
         {
             return _dataBase ?? new DataBase();
         }
@@ -27,8 +28,8 @@ namespace ZhaoXi.DataService
         {
             try
             {
-                string conStr = ConfigurationManager.ConnectionStrings.ToString();
                 _connection = new MySqlConnection();
+                _connection.ConnectionString= ConfigurationManager.ConnectionStrings["db"].ConnectionString;
                 _connection.Open();
                 return true;
             }
@@ -40,30 +41,41 @@ namespace ZhaoXi.DataService
 
         public bool CheckUserInfor(UserInfor userInfor)
         {
-            if (OpenConnection())
+            bool res = false;
+            DataSet ds = new DataSet();
+            try
             {
-                MySqlCommand command = new MySqlCommand();
-                string name = userInfor.User_name;
-                string password = userInfor.Password;
-                string str = string.Format("select * from users where user_name={0} and password={1}", name, password);
-                _adapter = new MySqlDataAdapter();
-                command.CommandText = str;
-                _adapter.SelectCommand = command;
-                DataSet ds = new DataSet();
-                int count = _adapter.Fill(ds);
-                if (count < 0)
+                if (OpenConnection())
                 {
-                    Dispose();
-                    return true;
+                    MySqlCommand command = new MySqlCommand();
+                    string name = userInfor.User_name;
+                    string password = MD5Hepler.GetMD5Str(name + "@" + userInfor.Password);
+                    string str = string.Format("select * from users where user_name='{0}' and password='{1}'", name, password);
+                    command.CommandText = str;
+                    _adapter = new MySqlDataAdapter(str, _connection);
+                    int count = _adapter.Fill(ds);
+                    if (count > 0)
+                    {
+                        res = true;
+                    }
                 }
             }
-            Dispose();
-            return false;
+            catch
+            {
+
+            }
+            finally
+            {
+                ds.Dispose();
+                Dispose();
+
+            }
+            return res;
         }
 
         void Dispose()
         {
-            if(_connection!=null)
+            if (_connection != null)
             {
                 _connection.Close();
                 _connection.Dispose();
@@ -75,5 +87,6 @@ namespace ZhaoXi.DataService
                 _adapter.Dispose();
                 _adapter = null;
             }
+        }
     }
 }

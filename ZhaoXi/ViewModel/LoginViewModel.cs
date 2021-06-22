@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
+using ZhaoXi.DataService;
+using ZhaoXi.EnityDto;
 using ZhaoXi.Model;
 
 namespace ZhaoXi.ViewModel
@@ -21,15 +24,21 @@ namespace ZhaoXi.ViewModel
         public LoginViewModel()
         {
             LoginModel = new LoginModel();
-            _loginModel.CloseCommand.ExecuteCommand = new Action<object>((object obj) => 
+            _loginModel.CloseCommand.ExecuteCommand = new Action<object>((object obj) =>
             {
                 (obj as Window).Close();
             });
-           /* _loginModel.LoginCommand .ExecuteCommand= new Action<object>((object obj) => 
-            { 
-
-            });*/
+            _loginModel.LoginCommand.ExecuteCommand = new Action<object>((object obj) =>
+            {
+                Task.Run(() =>
+                {
+                    UserInfor userInfor = new UserInfor() { User_name = _loginModel.UserName, Password = _loginModel.Password };
+                    if (!DataBase.GetInstanse().CheckUserInfor(userInfor))
+                    {
+                        _loginModel.ErrorMessage = "账号或者密码错误";
+                    }
+                });
+            });
         }
-
     }
 }
