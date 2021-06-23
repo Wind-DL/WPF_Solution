@@ -12,7 +12,7 @@ namespace ZhaoXi.Common
     {
         public override ValidationResult Validate(object value, CultureInfo cultureInfo)
         {
-            throw new NotImplementedException();
+            return null;
         }
     }
 }

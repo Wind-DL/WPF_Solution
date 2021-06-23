@@ -14,9 +14,10 @@
     <Grid>
         <Border Background="#FF94AEF7" CornerRadius="10" BorderThickness="3" 
             OpacityMask="Black" MouseMove="Border_MouseMove">
-            <Button x:Name="closeLogin" VerticalAlignment="Top" HorizontalAlignment="Right" Height="25" Width="25"
-                    Margin="0,8,8,0" Style="{StaticResource colseStyle}" Command="{Binding LoginModel.CloseCommand}"
-                    CommandParameter="{Binding ElementName=login}"
+            <Button x:Name="closeLogin" VerticalAlignment="Top" HorizontalAlignment="Right" 
+                    Margin="0,8,8,0" Style="{StaticResource WindowControlButtonStyle}" 
+                    Command="{Binding LoginModel.CloseCommand}"
+                    CommandParameter="{Binding ElementName=login}" Content="&#xe867;"
                     >
             </Button>
         </Border>
@@ -42,7 +43,9 @@
                                     <ColumnDefinition Width="50"/>
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
-                                <TextBlock Text="账号:" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18"
+                                <TextBlock Text="账号:" 
+                                           FontFamily="/Assets/Fonts/"
+                                           VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="18"
                                 />
                                 <TextBox Width="200" Height="35" Grid.Column="1" BorderThickness="0"
                                          TextAlignment="Center" VerticalContentAlignment="Center" 

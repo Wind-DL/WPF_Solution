@@ -5,8 +5,42 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="300" Width="300">
+    <Window.Resources>
+        <ResourceDictionary Source="/Assets/DefaultStyle.xaml"/>
+    </Window.Resources>
     <Grid>
-        
+        <StackPanel>
+            <Border>
+                <Button Template="{StaticResource WindowControlButtonTemplate}"
+                       FontFamily="/Assets/Fonts/#iconfont"
+                       Content="&#xe61e;"
+                       />
+            </Border>
+            <Border>
+                <Button
+                       FontFamily="/Assets/Fonts/#iconfont"
+                       Content="&#xe62f;" FontSize="40"
+                       />
+            </Border>
+            <Border>
+                <Button
+                       FontFamily="/Assets/Fonts/#iconfont"
+                       Content="&#xe867;" FontSize="40"
+                       />
+            </Border>
+            <Border>
+                <Button
+                       FontFamily="/Assets/Fonts/#iconfont"
+                       Content="&#xe782;" FontSize="40"
+                       />
+            </Border>
+            <Border>
+                <Button
+                       FontFamily="/Assets/Fonts/#iconfont"
+                       Content="&#xe9bc;" FontSize="40"
+                       />
+            </Border>
+        </StackPanel>
     </Grid>
 </Window>

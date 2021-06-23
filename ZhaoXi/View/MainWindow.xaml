@@ -5,8 +5,59 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ZhaoXi"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        FontFamily="Microsoft Yahei" FontWeight="ExtraLight" FontSize="12" 
+        WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True"
+        Title="MainWindow" Height="800" Width="1250" Background="{x:Null}">
+    <Window.Resources>
+        <ResourceDictionary Source="/Assets/Styles/DefaultStyle.xaml"/>
+    </Window.Resources>
+    <Border Margin="5" Background="White" CornerRadius="10">
+        <Border.Effect>
+            <DropShadowEffect Color="Gray" ShadowDepth="0" BlurRadius="5" Opacity="0.3" Direction="0"/>
+        </Border.Effect>
+        <Grid>
+            <Border Background="#007DFA" Height="200" VerticalAlignment="Top" CornerRadius="10,10,0,0"/>
+            <!--窗口控制按钮-->
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right">
+                <Button Style="{StaticResource WindowControlButtonStyle}"
+                        Content="&#xe61e;"
+                        />
+                <Button  Style="{StaticResource WindowControlButtonStyle}"
+                        Content="&#xe9bc;"
+                        />
+                <Button  Style="{StaticResource WindowControlButtonStyle}"
+                        Content="&#xe867;"
+                        />
+            </StackPanel>
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="65"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" VerticalAlignment="Center">
+                    <Image Source="/ZhaoXi;component/Assets/Images/1.jpg" Width="40" Height="40"/>
+                    <StackPanel Margin="15,0,0,0">
+                        <TextBlock Text="朝夕教育课程管理平台" FontSize="20" Foreground="White"/>
+                        <TextBlock Text="ZHAOXI EDU" Foreground="#88DDDDDD"/>
+                    </StackPanel>
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <Border Width="30" Height="30" CornerRadius="15">
+                        <Border.Background>
+                            <ImageBrush ImageSource="/ZhaoXi;component/Assets/Images/avatar.jpg"/>
+                        </Border.Background>
+                    </Border>
+                    
+                    <StackPanel Margin="15,0,160,0">
+                        <TextBlock Text="Administator" FontSize="20" Foreground="White"/>
+                      
+                    </StackPanel>
+                </StackPanel>
+
+            </Grid>
+        </Grid>
+    </Border>
 </Window>
