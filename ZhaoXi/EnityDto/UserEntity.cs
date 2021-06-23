@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ZhaoXi.EnityDto
 {
-    class UserInfor
+    class UserEntity
     {
         public string User_id { get; set; }
         public string User_name { get; set; }

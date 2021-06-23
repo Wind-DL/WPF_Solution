@@ -39,7 +39,7 @@ namespace ZhaoXi.DataService
             }
         }
 
-        public bool CheckUserInfor(UserInfor userInfor)
+        public bool CheckUserInfor(UserEntity userInfor)
         {
             bool res = false;
             DataSet ds = new DataSet();

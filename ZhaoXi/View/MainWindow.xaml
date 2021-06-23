@@ -64,17 +64,19 @@
             <DropShadowEffect Color="Gray" ShadowDepth="0" BlurRadius="5" Opacity="0.3" Direction="0"/>
         </Border.Effect>
         <Grid>
-            <Border Background="#007DFA" Height="200" VerticalAlignment="Top" CornerRadius="10,10,0,0"/>
+            <Border Background="#007DFA" Height="200" VerticalAlignment="Top" CornerRadius="10,10,0,0"
+                    MouseLeftButtonDown="Border_MouseLeftButtonDown"
+                    />
             <!--窗口控制按钮-->
             <StackPanel Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right">
                 <Button Style="{StaticResource WindowControlButtonStyle}"
-                        Content="&#xe61e;"
+                        Content="&#xe61e;" Click="Button_Click_2"
                         />
                 <Button  Style="{StaticResource WindowControlButtonStyle}"
-                        Content="&#xe9bc;"
+                        Content="&#xe9bc;" Click="Button_Click_1"
                         />
                 <Button  Style="{StaticResource WindowControlButtonStyle}"
-                        Content="&#xe867;"
+                        Content="&#xe867;" Click="Button_Click"
                         />
             </StackPanel>
 
@@ -94,27 +96,47 @@
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
                     <Border Width="30" Height="30" CornerRadius="15">
                         <Border.Background>
-                            <ImageBrush ImageSource="/ZhaoXi;component/Assets/Images/avatar.jpg"/>
+                            <ImageBrush ImageSource="{Binding UserInfor.Avatar}"/>
                         </Border.Background>
                     </Border>
 
                     <StackPanel Margin="15,0,160,0">
-                        <TextBlock Text="Administrator" FontSize="20" Foreground="White"/>
-
+                        <Button FontSize="20" Foreground="White"
+                                  Cursor="Hand"
+                                >
+                            <Button.Template>
+                                <ControlTemplate TargetType="Button">
+                                    <TextBlock Text="{Binding  UserInfor.UserName}"/>
+                                </ControlTemplate>
+                            </Button.Template>
+                        </Button>
+                         
                     </StackPanel>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Left" Margin="40,0,0,0">
-                    <RadioButton Content="首页" Style="{StaticResource NavButtonStyle}"/>
-                    <RadioButton Content="关于我们" Style="{StaticResource NavButtonStyle}"/>
+                    <RadioButton Content="首页" Style="{StaticResource NavButtonStyle}" 
+                                 Command="{Binding NavChangedCommand}" CommandParameter="FirstPageView"/>
+                    <RadioButton Content="关于我们" Style="{StaticResource NavButtonStyle}"
+                                 Command="{Binding NavChangedCommand}" CommandParameter="CoursePage"
+                                 />
                     <RadioButton Content="课程中心" Style="{StaticResource NavButtonStyle}"/>
                     <RadioButton Content="诚聘英才" Style="{StaticResource NavButtonStyle}"/>
                     <RadioButton Content="个人中心" Style="{StaticResource NavButtonStyle}"/>
                 </StackPanel>
 
                 <TextBox Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Right" Width="300" Height="32"
-                         Template="{StaticResource SearchTextBoxtemplate}"  Margin="0,0,160,0" Text="123"
+                         Template="{StaticResource SearchTextBoxtemplate}"  Margin="0,0,160,0" Text="{Binding SearchText}"
                          />
+                <ContentControl Grid.Row="2" Content="{Binding MainContent}">
+
+                </ContentControl>
             </Grid>
+            
+            <Border Background="White" Width="240" HorizontalAlignment="Right" CornerRadius="0,5,5,0">
+                
+            </Border>
+            
+            
         </Grid>
     </Border>
 </Window>

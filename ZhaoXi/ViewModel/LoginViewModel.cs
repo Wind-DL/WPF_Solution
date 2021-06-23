@@ -32,13 +32,20 @@ namespace ZhaoXi.ViewModel
             {
                 Task.Run(() =>
                 {
-                    UserInfor userInfor = new UserInfor() { User_name = _loginModel.UserName, Password = _loginModel.Password };
+                    UserEntity userInfor = new UserEntity() { User_name = _loginModel.UserName, Password = _loginModel.Password };
+                    
+
                     if (!DataBase.GetInstanse().CheckUserInfor(userInfor))
                     {
                         _loginModel.ErrorMessage = "账号或者密码错误";
                     }
                     else
                     {
+                        UserModel model = new UserModel();
+                        model.Avatar = "/ZhaoXi;component/Assets/Images/avatar.jpg";
+                        model.UserName = _loginModel.UserName;
+                        model.Gender = 1;
+                        Common.Global.UserInfor = model;
                         Application.Current.Dispatcher.Invoke(() => { (obj as Window).DialogResult = true; });
                     }
                 });

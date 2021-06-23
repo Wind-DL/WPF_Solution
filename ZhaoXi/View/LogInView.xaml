@@ -49,7 +49,7 @@
                                 />
                                 <TextBox Width="200" Height="35" Grid.Column="1" BorderThickness="0"
                                          TextAlignment="Center" VerticalContentAlignment="Center" 
-                                         HorizontalContentAlignment="Left" FontSize="20"
+                                         FontSize="20" HorizontalContentAlignment="Left"
                                          Text="{Binding LoginModel.UserName}"
                                          />
                             </Grid>

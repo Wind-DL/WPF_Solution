@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ZhaoXi.Common;
+using ZhaoXi.ViewModel;
 
 namespace ZhaoXi
 {
@@ -23,6 +25,36 @@ namespace ZhaoXi
         public MainWindow()
         {
             InitializeComponent();
+            MainViewModel model = new MainViewModel();
+            DataContext = model;
+            model.UserInfor.UserName = Global.UserInfor.UserName;
+            model.UserInfor.Avatar = Global.UserInfor.Avatar;
+            //DataContext = new MainViewModel() { UserInfor = new Model.UserModel() { UserName = Global.UserInfor.User_name } };
+          
+            MaxHeight = SystemParameters.PrimaryScreenHeight;
+        }
+
+        private void Border_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            if(e.ButtonState==MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState == WindowState.Maximized ? WindowState.Normal : WindowState.Maximized;
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            WindowState = WindowState.Minimized;
         }
     }
 }

@@ -62,6 +62,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\CoursePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\FirstPageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\LogInView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -75,14 +83,23 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Common\CommandBase.cs" />
+    <Compile Include="Common\Global.cs" />
     <Compile Include="Common\MD5Hepler.cs" />
     <Compile Include="Common\NotifyProperty.cs" />
     <Compile Include="Common\NotNullValidationRule.cs" />
     <Compile Include="DataService\DataBase.cs" />
-    <Compile Include="EnityDto\UserInfor.cs" />
+    <Compile Include="EnityDto\UserEntity.cs" />
     <Compile Include="Model\LoginModel.cs" />
     <Compile Include="Model\PasswordHelper.cs" />
+    <Compile Include="Model\UserModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
+    <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="View\CoursePage.xaml.cs">
+      <DependentUpon>CoursePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\FirstPageView.xaml.cs">
+      <DependentUpon>FirstPageView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\LogInView.xaml.cs">
       <DependentUpon>LogInView.xaml</DependentUpon>
     </Compile>

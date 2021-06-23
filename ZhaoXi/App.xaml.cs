@@ -17,10 +17,10 @@ namespace ZhaoXi
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-            /*if (new LogInView().ShowDialog() == true)
+            if (new LogInView().ShowDialog() == true)
             {
                 new MainWindow().ShowDialog();
-            }*/
+            }
 
             new MainWindow().ShowDialog();
             Application.Current.Shutdown();
