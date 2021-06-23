@@ -7,40 +7,23 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="300" Width="300">
     <Window.Resources>
-        <ResourceDictionary Source="/Assets/DefaultStyle.xaml"/>
+        <!-- <ResourceDictionary Source="/Assets/DefaultStyle.xaml"/>-->
+        <Style TargetType="Button" x:Key="buttonStyle">
+            <Setter Property="Width" Value="120"/>
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Background" Value="LightGray"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <TextBlock FontFamily="Assets/Fonts/#iconfont" FontSize="20"
+                           Text="{Binding Content, RelativeSource={RelativeSource AncestorType=Button, Mode=FindAncestor}}"
+                            /> 
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
     <Grid>
-        <StackPanel>
-            <Border>
-                <Button Template="{StaticResource WindowControlButtonTemplate}"
-                       FontFamily="/Assets/Fonts/#iconfont"
-                       Content="&#xe61e;"
-                       />
-            </Border>
-            <Border>
-                <Button
-                       FontFamily="/Assets/Fonts/#iconfont"
-                       Content="&#xe62f;" FontSize="40"
-                       />
-            </Border>
-            <Border>
-                <Button
-                       FontFamily="/Assets/Fonts/#iconfont"
-                       Content="&#xe867;" FontSize="40"
-                       />
-            </Border>
-            <Border>
-                <Button
-                       FontFamily="/Assets/Fonts/#iconfont"
-                       Content="&#xe782;" FontSize="40"
-                       />
-            </Border>
-            <Border>
-                <Button
-                       FontFamily="/Assets/Fonts/#iconfont"
-                       Content="&#xe9bc;" FontSize="40"
-                       />
-            </Border>
-        </StackPanel>
+        <Button Style="{StaticResource buttonStyle}" Content="&#xe782;" FontSize="40"/>
     </Grid>
 </Window>

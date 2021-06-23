@@ -50,13 +50,12 @@
                             <ImageBrush ImageSource="/ZhaoXi;component/Assets/Images/avatar.jpg"/>
                         </Border.Background>
                     </Border>
-                    
+
                     <StackPanel Margin="15,0,160,0">
-                        <TextBlock Text="Administator" FontSize="20" Foreground="White"/>
-                      
+                        <TextBlock Text="Administrator" FontSize="20" Foreground="White"/>
+
                     </StackPanel>
                 </StackPanel>
-
             </Grid>
         </Grid>
     </Border>
