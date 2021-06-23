@@ -23,8 +23,15 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
-            
           
+        }
+
+        private void Border_MouseMove(object sender, MouseEventArgs e)
+        {
+            if(e.LeftButton==MouseButtonState.Pressed)
+            {
+                DragMove();
+            }
         }
     }
 }

@@ -15,12 +15,46 @@
                 <ResourceDictionary Source="/Assets/DefaultStyle.xaml"/>
                 <ResourceDictionary>
                     <Style TargetType="RadioButton" x:Key="style">
+                        <Setter Property="Width" Value="70"/>
+                        <Setter Property="Height" Value="35"/>
+                        <Setter Property="Margin" Value="5"/>
                         <Setter Property="Template">
                             <Setter.Value>
                                 <ControlTemplate TargetType="RadioButton">
-                                    <Border CornerRadius="5" Background="Red">
-                                        <TextBlock Text="{Binding Content}"/>
+                                    <Border Background="#FF3BD6C2" CornerRadius="10" x:Name="border">
+                                        <ContentControl Content="{TemplateBinding Content}"
+                                          VerticalAlignment="Center" HorizontalAlignment="Center"
+                                                     Foreground="White" FontSize="13"
+                                                        />
                                     </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsChecked" Value="True">
+                                            <Setter Property="Background" Value="Blue" TargetName="border"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ResourceDictionary>
+                <ResourceDictionary>
+                    <Style x:Key="btnStyle" TargetType="Button">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Border x:Name="border">
+                                        <ContentControl Content="{TemplateBinding Content}"
+                                                        HorizontalAlignment="Center"
+                                                        VerticalAlignment="Center"
+                                                        >
+                                            
+                                        </ContentControl> 
+                                    </Border>
+                                    <ControlTemplate.Triggers>
+                                        <Trigger Property="IsPressed" Value="True">
+                                            <Setter Property="Background" Value="Red" TargetName="border"/>
+                                        </Trigger>
+                                    </ControlTemplate.Triggers>
                                 </ControlTemplate>
                             </Setter.Value>
                         </Setter>
@@ -29,7 +63,7 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
-    <Border Background="White" CornerRadius="10,10,0,0">
+    <Border Background="White" CornerRadius="10,10,0,0" MouseMove="Border_MouseMove">
         <Grid >
             <Grid.RowDefinitions>
                 <RowDefinition Height="50"/>
@@ -40,6 +74,10 @@
                     <RadioButton Content="文件" Style="{StaticResource style}"/>
                     <RadioButton Content="编辑"  Style="{StaticResource style}"/>
                     <RadioButton Content="视图"  Style="{StaticResource style}"/>
+                    
+                    <Button Width="50" Height="30" Content="Button" Style="{StaticResource btnStyle}"
+                            Foreground="Black" Background="Aqua"/>
+                    
                 </StackPanel>
             </Border>
         </Grid>
