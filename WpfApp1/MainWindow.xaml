@@ -5,25 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="300" Width="300">
+        Title="MainWindow" Height="300" Width="300"
+        WindowStyle="None" AllowsTransparency="True"
+        Background="{x:Null}"
+        >
     <Window.Resources>
-        <!-- <ResourceDictionary Source="/Assets/DefaultStyle.xaml"/>-->
-        <Style TargetType="Button" x:Key="buttonStyle">
-            <Setter Property="Width" Value="120"/>
-            <Setter Property="Height" Value="50"/>
-            <Setter Property="Background" Value="LightGray"/>
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate>
-                        <TextBlock FontFamily="Assets/Fonts/#iconfont" FontSize="20"
-                           Text="{Binding Content, RelativeSource={RelativeSource AncestorType=Button, Mode=FindAncestor}}"
-                            /> 
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Assets/DefaultStyle.xaml"/>
+                <ResourceDictionary>
+                    <Style TargetType="RadioButton" x:Key="style">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="RadioButton">
+                                    <Border CornerRadius="5" Background="Red">
+                                        <TextBlock Text="{Binding Content}"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Window.Resources>
-    <Grid>
-        <Button Style="{StaticResource buttonStyle}" Content="&#xe782;" FontSize="40"/>
-    </Grid>
+    <Border Background="White" CornerRadius="10,10,0,0">
+        <Grid >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Border Background="#007DFA" CornerRadius="10,10,0,0" Height="50">
+                <StackPanel Orientation="Horizontal">
+                    <RadioButton Content="文件" Style="{StaticResource style}"/>
+                    <RadioButton Content="编辑"  Style="{StaticResource style}"/>
+                    <RadioButton Content="视图"  Style="{StaticResource style}"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Border>
 </Window>
