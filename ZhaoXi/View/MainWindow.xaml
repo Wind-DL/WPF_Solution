@@ -53,12 +53,27 @@
                                 <Setter Property="Visibility" Value="Visible" TargetName="mt"/>
                             </DataTrigger>
                         </ControlTemplate.Triggers>
-                        </ControlTemplate>
+                    </ControlTemplate>
+
+                    <Storyboard x:Key="UserInforStoryboard">
+                        <DoubleAnimation Duration="0:0:0.2" To="0"
+                                         Storyboard.TargetName="tt"
+                                         Storyboard.TargetProperty="X"
+                                         />
+                    </Storyboard>
+
+
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
-        
     </Window.Resources>
+    <Window.Triggers>
+        <EventTrigger  SourceName="btnUserInfo" RoutedEvent="Button_Click">
+            <BeginStoryboard Storyboard="{StaticResource UserInforStoryboard}"/>
+        </EventTrigger>
+    </Window.Triggers>
+    
+    
     <Border Margin="5" Background="White" CornerRadius="10">
         <Border.Effect>
             <DropShadowEffect Color="Gray" ShadowDepth="0" BlurRadius="5" Opacity="0.3" Direction="0"/>
@@ -102,7 +117,7 @@
 
                     <StackPanel Margin="15,0,160,0">
                         <Button FontSize="20" Foreground="White"
-                                  Cursor="Hand"
+                                  Cursor="Hand" x:Name="btnUserInfo"
                                 >
                             <Button.Template>
                                 <ControlTemplate TargetType="Button">
@@ -132,8 +147,11 @@
                 </ContentControl>
             </Grid>
             
+            <!--抽侧滑栏-->
             <Border Background="White" Width="240" HorizontalAlignment="Right" CornerRadius="0,5,5,0">
-                
+                <Border.RenderTransform>
+                    <TranslateTransform X="250" x:Name="tt"/>
+                </Border.RenderTransform>
             </Border>
             
             
