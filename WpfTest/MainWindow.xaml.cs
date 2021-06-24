@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfTest.ViewModel;
 
 namespace WpfTest
 {
@@ -20,11 +21,17 @@ namespace WpfTest
     /// </summary>
     public partial class MainWindow : Window
     {
+        TestViewModel ViewModel;
         public MainWindow()
         {
             InitializeComponent();
-         
+            ViewModel = new TestViewModel();
+            DataContext = ViewModel;
+        }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(ViewModel.Model.Gender.ToString());
         }
     }
 }

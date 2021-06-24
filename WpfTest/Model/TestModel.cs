@@ -7,17 +7,17 @@ using WpfTest.Common;
 
 namespace WpfTest.Model
 {
-    class TestModel: NotifyProperty
+    class TestModel : NotifyProperty
     {
-        private string _input;
+        private int _gender;
 
-        public string Input
+        public int Gender
         {
-            get { return _input; }
-            set { _input = value; OnPropertyChanged(); }
+            get { return _gender; }
+            set { _gender = value; OnPropertyChanged(); }
         }
 
-        public CommandBase TestCommand { get; } = new CommandBase();
 
+        public CommandBase CommandBase { get; set; } = new CommandBase();
     }
 }

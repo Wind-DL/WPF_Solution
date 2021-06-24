@@ -13,8 +13,7 @@ namespace WpfTest.Common
 
         public bool CanExecute(object parameter)
         {
-            bool b= DoCanExcute == null ? false : DoCanExcute.Invoke(parameter);
-            return b;
+            return true;
         }
 
         public void Execute(object parameter)

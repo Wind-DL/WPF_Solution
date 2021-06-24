@@ -7,6 +7,7 @@
         xmlns:model="clr-namespace:ZhaoXi.Model"
         mc:Ignorable="d"  x:Name="login"
         Title="LogInView" Height="500" Width="350" AllowsTransparency="True" 
+        WindowStartupLocation="CenterScreen"
         WindowStyle="None" Background="{x:Null}">
     <Window.Resources>
         <ResourceDictionary Source="/Assets/Styles/DefaultStyle.xaml"/>

@@ -4,37 +4,25 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfTest"
+        xmlns:converter="clr-namespace:WpfTest.Converter"
         mc:Ignorable="d"
-        Title="MainWindow" Height="300" Width="500">
+        Title="MainWindow" Height="200" Width="300">
     <Window.Resources>
-        <!--只能传递一层属性，不能搜索到属性的属性，每一个元素，都可以取一个名字，这样就可以直接拿到任何属性了。-->
-        <!--点击一次，矩形旋转一周,无法重复执行？-->
-        <Storyboard x:Key="story">
-            <DoubleAnimation Duration="0:0:1" To="360" 
-                             Storyboard.TargetProperty="Angle" 
-                             Storyboard.TargetName="angle"/>
-        </Storyboard>
+        <converter:GenderConverter x:Key="converter"/>
     </Window.Resources>
-
-
-
     <Grid>
-       
-     
-        <Border x:Name="border" VerticalAlignment="Top" Width="100" Height="30"
-                   Margin="0,100,0,0"       
-                Background="Red" RenderTransformOrigin="0.5,0.5">
-            <Border.Effect>
-                <DropShadowEffect ShadowDepth="25" 
-                                  BlurRadius="18" RenderingBias="Quality" Direction="280" Color="#99AAAAB4"/>
-            </Border.Effect>
-
-            <Border.RenderTransform>
-                <RotateTransform Angle="0" x:Name="angle" />
-              
-            </Border.RenderTransform>
-           
-        </Border>
-                
+        <Grid.Resources>
+            <Style TargetType="RadioButton">
+                <Setter Property="Margin" Value="5"/>
+                <Setter Property="VerticalAlignment" Value="Center"/>
+                <Setter Property="Content" Value="hello"/>
+            </Style>
+        </Grid.Resources>
+        <StackPanel Orientation="Horizontal" Height="50" VerticalAlignment="Top">
+            <RadioButton Content="男"  Margin="10" 
+                         IsChecked="{Binding  Model.Gender, Converter={StaticResource converter}, ConverterParameter=1}"/>
+            <RadioButton Content="女" 
+                         IsChecked="{Binding  Model.Gender, Converter={StaticResource converter}, ConverterParameter=2}"/>
+        </StackPanel>
     </Grid>
 </Window>

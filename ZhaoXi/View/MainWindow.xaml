@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ZhaoXi"
+        xmlns:converter="clr-namespace:ZhaoXi.Converter"
         mc:Ignorable="d"
         FontFamily="Microsoft Yahei" FontWeight="ExtraLight" FontSize="12" 
         WindowStartupLocation="CenterScreen" WindowStyle="None" AllowsTransparency="True"
@@ -31,8 +32,6 @@
                             </Setter.Value>
                         </Setter>
                     </Style>
-                </ResourceDictionary>
-                <ResourceDictionary>
                     <ControlTemplate TargetType="TextBox" x:Key="SearchTextBoxtemplate">
                         <Border CornerRadius="10" Background="#22000000" BorderThickness="0">
                             <Grid>
@@ -62,14 +61,23 @@
                                          />
                     </Storyboard>
 
-
+                    <Storyboard x:Key="CloseUserInforStoryboard">
+                        <DoubleAnimation Duration="0:0:0.2" To="250"
+                                         Storyboard.TargetName="tt"
+                                         Storyboard.TargetProperty="X"
+                                         />
+                    </Storyboard>
+                    
                 </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
     <Window.Triggers>
-        <EventTrigger  SourceName="btnUserInfo" RoutedEvent="Button_Click">
+        <EventTrigger  SourceName="btnUserInfo" RoutedEvent="Button.Click">
             <BeginStoryboard Storyboard="{StaticResource UserInforStoryboard}"/>
+        </EventTrigger>
+        <EventTrigger  SourceName="CloseUserInforButton" RoutedEvent="Button.Click">
+            <BeginStoryboard Storyboard="{StaticResource CloseUserInforStoryboard}"/>
         </EventTrigger>
     </Window.Triggers>
     
@@ -147,14 +155,34 @@
                 </ContentControl>
             </Grid>
             
-            <!--抽侧滑栏-->
-            <Border Background="White" Width="240" HorizontalAlignment="Right" CornerRadius="0,5,5,0">
+            <!--抽屉侧滑栏-->
+            <Border Background="#99444444" Width="240" HorizontalAlignment="Right" CornerRadius="0,5,5,0">
                 <Border.RenderTransform>
                     <TranslateTransform X="250" x:Name="tt"/>
                 </Border.RenderTransform>
+                <Grid>
+                    
+                        
+                <Grid.Resources>    </Grid.Resources>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="230"/>
+                        <RowDefinition />
+                    </Grid.RowDefinitions>
+                    <Button Content="Close" VerticalAlignment="Top" HorizontalAlignment="Left"
+                            Width="50" Height="50" Background="LightBlue" x:Name="CloseUserInforButton"
+                            />
+
+
+                    <Border Width="120" Height="120" CornerRadius="60">
+                        <Border.Background>
+                            <ImageBrush ImageSource="{Binding UserInfor.Avatar}"/>
+                        </Border.Background>
+                    </Border>
+
+
+                </Grid>
             </Border>
-            
-            
+       
         </Grid>
     </Border>
 </Window>

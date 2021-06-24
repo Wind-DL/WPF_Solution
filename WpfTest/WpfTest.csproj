@@ -55,6 +55,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Common\NotifyProperty.cs" />
+    <Compile Include="Converter\GenderConverter.cs" />
     <Compile Include="ViewModel\TestViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
