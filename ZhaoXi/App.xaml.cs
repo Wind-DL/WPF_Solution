@@ -21,8 +21,6 @@ namespace ZhaoXi
             {
                 new MainWindow().ShowDialog();
             }
-
-            new MainWindow().ShowDialog();
             Application.Current.Shutdown();
         }
     }
