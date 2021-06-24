@@ -19,27 +19,16 @@
 
 
     <Grid>
-        <Grid.Triggers>
-            <EventTrigger RoutedEvent="Button.Click" SourceName="Btn">
-                <BeginStoryboard Storyboard="{StaticResource story}"/>
-            </EventTrigger>
-        </Grid.Triggers>
-        <Button x:Name="Btn" Height="50" Width="100" Background="#0080FF"
-                VerticalAlignment="Top" HorizontalAlignment="Center"
-                Margin="0,100,0,0"  Content="btn" FontSize="20" >
-            <Button.Template>
-                <ControlTemplate TargetType="Button">
-                    <Border CornerRadius="5" Background="{TemplateBinding Background}"
-                            BorderThickness="3" BorderBrush="Gray">
-                        <TextBlock Text="{TemplateBinding Content}" VerticalAlignment="Center"
-                                      HorizontalAlignment="Center"/>
-                    </Border>
-                </ControlTemplate>
-            </Button.Template>
-        </Button>
-        <Border x:Name="border" VerticalAlignment="Top" Width="80" Height="20"
-                   Margin="0,30,0,0"       
+       
+     
+        <Border x:Name="border" VerticalAlignment="Top" Width="100" Height="30"
+                   Margin="0,100,0,0"       
                 Background="Red" RenderTransformOrigin="0.5,0.5">
+            <Border.Effect>
+                <DropShadowEffect ShadowDepth="25" 
+                                  BlurRadius="18" RenderingBias="Quality" Direction="280" Color="#99AAAAB4"/>
+            </Border.Effect>
+
             <Border.RenderTransform>
                 <RotateTransform Angle="0" x:Name="angle" />
               
