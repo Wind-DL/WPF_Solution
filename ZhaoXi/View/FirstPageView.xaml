@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:ZhaoXi.View"
              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              mc:Ignorable="d" 
+             xmlns:zxc="clr-namespace:Controls;assembly=Controls"
              d:DesignHeight="750" d:DesignWidth="1000">
     <Grid>
         <Grid.RowDefinitions>
@@ -284,10 +285,12 @@
                             <TextBlock Text="最高使用率" HorizontalAlignment="Center" Margin="0,0,0,5" Foreground="#3F4C5D" FontSize="12"/>
                         </StackPanel>
 
+                        <zxc:Instrument  Margin="0,20,0,40"  Value="1"/>
+
                     </Grid>
                 </Border>
-
-
+              
+               
             </Grid>
         </Grid>
 
