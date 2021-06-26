@@ -56,6 +56,9 @@
     </ApplicationDefinition>
     <Compile Include="Common\NotifyProperty.cs" />
     <Compile Include="Converter\GenderConverter.cs" />
+    <Compile Include="Instrument.xaml.cs">
+      <DependentUpon>Instrument.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ViewModel\TestViewModel.cs" />
     <Compile Include="View\Page1.xaml.cs">
       <DependentUpon>Page1.xaml</DependentUpon>
@@ -63,6 +66,10 @@
     <Compile Include="View\Page2.xaml.cs">
       <DependentUpon>Page2.xaml</DependentUpon>
     </Compile>
+    <Page Include="Instrument.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

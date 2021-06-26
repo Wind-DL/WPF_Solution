@@ -13,21 +13,23 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ZhaoXi.View
+namespace WpfTest
 {
     /// <summary>
-    /// FirstPageView.xaml 的交互逻辑
+    /// Instrument.xaml 的交互逻辑
     /// </summary>
-    public partial class FirstPageView : UserControl
+    public partial class Instrument : UserControl
     {
-        public int Size { set; get; } = 5;
-
-        
-
-        public FirstPageView()
+        public Instrument()
         {
             InitializeComponent();
-            DataContext = this.Size;
+            SizeChanged += Instrument_SizeChanged;
+        }
+
+        private void Instrument_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            double min = Math.Min(RenderSize.Width, RenderSize.Height);
+            
         }
     }
 }

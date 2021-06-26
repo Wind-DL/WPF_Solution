@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ZhaoXi.View"
              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+             xmlns:lvcs="clr-namespace:LiveCharts;assembly=LiveCharts"
              mc:Ignorable="d" 
              xmlns:zxc="clr-namespace:Controls;assembly=Controls"
              d:DesignHeight="750" d:DesignWidth="1000">
@@ -14,6 +15,7 @@
             <RowDefinition Height="360"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
+        
         <UniformGrid Columns="4">
             <Border CornerRadius="5" Background="White" Margin="10">
                 <Border.Effect>
@@ -209,10 +211,7 @@
                             </lvc:CartesianChart.AxisY>
                         </lvc:CartesianChart>
                     </Grid>
-                    
-                    
                 </Border>
-
             </Grid>
              
             <!--朝夕教育-->
@@ -285,14 +284,81 @@
                             <TextBlock Text="最高使用率" HorizontalAlignment="Center" Margin="0,0,0,5" Foreground="#3F4C5D" FontSize="12"/>
                         </StackPanel>
 
-                        <zxc:Instrument  Margin="0,20,0,40"  Value="1"/>
+                        <zxc:Instrument Margin="0,0,0,40"/>
 
                     </Grid>
                 </Border>
-              
-               
             </Grid>
+            
+            
+            
         </Grid>
 
+         <!--课程总览-->
+        <Grid Grid.Row="2" Margin="10,0,10,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Text="课程总览" Foreground="#3F4C5D" VerticalAlignment="Center" FontSize="15"
+                           FontWeight="Black"/>
+            <TextBlock HorizontalAlignment="Right" VerticalAlignment="Center">
+                    <Hyperlink>详情</Hyperlink>
+            </TextBlock>
+
+            <StackPanel Grid.Row="1">
+                    <Border Background="White" CornerRadius="10" Margin="0,5">
+                        <Border.Effect>
+                            <DropShadowEffect Color="Gray" ShadowDepth="0" BlurRadius="10" Opacity="0.4" Direction="0"/>
+                        </Border.Effect>
+                    <Grid Height="70">
+                        <Grid.ColumnDefinitions>
+
+                        </Grid.ColumnDefinitions>
+                    </Grid>
+                    </Border>
+                    <Border Background="White" CornerRadius="10"  Margin="0,5">
+                        <Border.Effect>
+                            <DropShadowEffect Color="Gray" ShadowDepth="0" BlurRadius="10" Opacity="0.4" Direction="0"/>
+                        </Border.Effect>
+                    <Grid Height="70">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="1.5*"/>
+                            <ColumnDefinition Width="3.5*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Text="C#/.net架构师蜕变营" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#444"/>
+                        <lvc:PieChart Grid.Column="1" LegendLocation="Right" InnerRadius="15">
+                            <lvc:PieChart.Series>
+                                <lvcs:SeriesCollection>
+                                    <lvc:PieSeries Title="11" Values="12" DataLabels="False"/>
+                                    <lvc:PieSeries Title="22" Values="12" DataLabels="False"/>
+                                    <lvc:PieSeries Title="33" Values="12" DataLabels="False"/>
+                                    <lvc:PieSeries Title="44" Values="12" DataLabels="False"/>
+                                    <lvc:PieSeries Title="55" Values="12" DataLabels="False"/>
+                                </lvcs:SeriesCollection>
+                            </lvc:PieChart.Series>
+                            
+                            <lvc:PieChart.ChartLegend>
+                                <lvc:DefaultLegend BulletSize="10"/>
+                            </lvc:PieChart.ChartLegend>
+
+                            <lvc:PieChart.DataTooltip>
+                                <lvc:DefaultLegend BulletSize="10"/>
+                            </lvc:PieChart.DataTooltip>
+                        </lvc:PieChart>
+
+                       
+
+                    </Grid>
+                </Border>
+            </StackPanel>
+            
+            
+            
+        </Grid>
+        
+        
+        
     </Grid>
 </UserControl>

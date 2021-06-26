@@ -22,19 +22,19 @@ namespace Controls
     {
 
 
-        public double Value
+        public int Value
         {
-            get { return (double)GetValue(ValueProperty); }
+            get { return (int)GetValue(ValueProperty); }
             set { SetValue(ValueProperty, value); }
         }
 
         // Using a DependencyProperty as the backing store for Value.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty ValueProperty =
-            DependencyProperty.Register("Value", typeof(double), typeof(Instrument), new PropertyMetadata(double.NaN,
+            DependencyProperty.Register("Value", typeof(int), typeof(Instrument), new PropertyMetadata(1,
                 new PropertyChangedCallback(OnPropertyChanged)
                 ));
 
-        public static void OnPropertyChanged(DependencyObject d,DependencyPropertyChangedEventArgs e)
+        public static void OnPropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             (d as Instrument).Refresh();
         }
@@ -56,19 +56,35 @@ namespace Controls
         {
             double radius = backEllispse.Width / 2;
             mainCanvas.Children.Clear();
-            double min = 0;
-            double max = 100;
-            double step = 270.0 / (max - min);
-            for (int i = 0; i < max - min; i++)
-            {
-                Line lineScale = new Line();
-                lineScale.X1 = 100;
-                lineScale.Y1 = 100;
-                lineScale.X2 = 200;
-                lineScale.Y2 = 300;
-                lineScale.Stroke = Brushes.White;
-                lineScale.StrokeThickness = 2;
-                mainCanvas.Children.Add(lineScale);
+            int min = -20;
+            int max = 80;
+            int defference = max - min;
+            double step = 270.0 / defference;
+            int length = 0;
+                for (int i = 0; i <= defference; i++)
+                {
+                    if ((i % 5) == 0)
+                    {
+                        if ((i % 10) == 0)
+                        {
+                            length = 20;
+                        }
+                        else
+                            length = 15;
+                    }
+                    else
+                        length = 10;
+                    Line line = new Line();
+                    double arc = (135 + step * i) * Math.PI / 180;
+                    line.X1 = radius + (radius - 3) * Math.Cos(arc);
+                    line.Y1 = radius + (radius - 3) * Math.Sin(arc);
+
+                    line.X2 = radius + (radius - length - 3) * Math.Cos(arc);
+                    line.Y2 = radius + (radius - length - 3) * Math.Sin(arc);
+                    line.Stroke = Brushes.White;
+                    line.StrokeThickness = 1;
+                    mainCanvas.Children.Add(line);
+                
             }
         }
     }
