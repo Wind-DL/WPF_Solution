@@ -7,7 +7,7 @@
              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              xmlns:lvcs="clr-namespace:LiveCharts;assembly=LiveCharts"
              mc:Ignorable="d" 
-             xmlns:zxc="clr-namespace:Controls;assembly=Controls"
+             xmlns:zxc="clr-namespace:ZX_Controls;assembly=ZX_Controls"
              d:DesignHeight="750" d:DesignWidth="1000">
     <Grid>
         <Grid.RowDefinitions>
@@ -284,7 +284,11 @@
                             <TextBlock Text="最高使用率" HorizontalAlignment="Center" Margin="0,0,0,5" Foreground="#3F4C5D" FontSize="12"/>
                         </StackPanel>
 
-                        <zxc:Instrument Margin="0,0,0,40"/>
+                        <zxc:Instrument Margin="0,0,0,40" Value="{Binding InstrumentValue,Mode=TwoWay}">
+                            <zxc:Instrument.Effect>
+                                <DropShadowEffect BlurRadius="20" ShadowDepth="10" Color="#FFB0AAAA"/>
+                            </zxc:Instrument.Effect>
+                        </zxc:Instrument>
 
                     </Grid>
                 </Border>
@@ -327,6 +331,7 @@
                             <ColumnDefinition Width="1.5*"/>
                             <ColumnDefinition Width="3.5*"/>
                         </Grid.ColumnDefinitions>
+                        
                         <TextBlock Text="C#/.net架构师蜕变营" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#444"/>
                         <lvc:PieChart Grid.Column="1" LegendLocation="Right" InnerRadius="15">
                             <lvc:PieChart.Series>
@@ -348,6 +353,22 @@
                             </lvc:PieChart.DataTooltip>
                         </lvc:PieChart>
 
+                        <UniformGrid Columns="5" Grid.Column="2">
+                            <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <TextBlock Text="云课题" />
+                                <TextBlock Text="161" Grid.Row="1"/>
+                                <TextBlock Text="|" Grid.Column="1"/>
+                                <TextBlock Text="75%" Grid.Column="1" Grid.Row="1"/>
+                            </Grid>
+                        </UniformGrid>
                        
 
                     </Grid>

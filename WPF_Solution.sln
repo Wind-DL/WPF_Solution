@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp1", "ConsoleApp1\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfTest", "WpfTest\WpfTest.csproj", "{4CA635D2-2701-4371-B076-08BEC84EE02A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Controls", "Controls\Controls.csproj", "{50769A05-496E-48AF-A8CB-8ED0F1C47961}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZX_Controls", "ZX_Controls\ZX_Controls.csproj", "{FDA1862C-AC19-4580-98D5-CCC9BDD32BC4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{4CA635D2-2701-4371-B076-08BEC84EE02A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4CA635D2-2701-4371-B076-08BEC84EE02A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4CA635D2-2701-4371-B076-08BEC84EE02A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{50769A05-496E-48AF-A8CB-8ED0F1C47961}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{50769A05-496E-48AF-A8CB-8ED0F1C47961}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{50769A05-496E-48AF-A8CB-8ED0F1C47961}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{50769A05-496E-48AF-A8CB-8ED0F1C47961}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDA1862C-AC19-4580-98D5-CCC9BDD32BC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDA1862C-AC19-4580-98D5-CCC9BDD32BC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDA1862C-AC19-4580-98D5-CCC9BDD32BC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDA1862C-AC19-4580-98D5-CCC9BDD32BC4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

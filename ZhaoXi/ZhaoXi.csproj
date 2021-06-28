@@ -96,9 +96,12 @@
     <Compile Include="Converter\GenderConverter.cs" />
     <Compile Include="DataService\DataBase.cs" />
     <Compile Include="EnityDto\UserEntity.cs" />
+    <Compile Include="Model\CourseServiceModel.cs" />
     <Compile Include="Model\LoginModel.cs" />
     <Compile Include="Model\PasswordHelper.cs" />
+    <Compile Include="Model\SeriesModel.cs" />
     <Compile Include="Model\UserModel.cs" />
+    <Compile Include="ViewModel\FirstPageViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="View\CoursePage.xaml.cs">
@@ -153,9 +156,9 @@
     <Resource Include="Assets\Images\avatar.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Controls\Controls.csproj">
-      <Project>{50769a05-496e-48af-a8cb-8ed0f1c47961}</Project>
-      <Name>Controls</Name>
+    <ProjectReference Include="..\ZX_Controls\ZX_Controls.csproj">
+      <Project>{fda1862c-ac19-4580-98d5-ccc9bdd32bc4}</Project>
+      <Name>ZX_Controls</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

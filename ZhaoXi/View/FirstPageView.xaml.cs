@@ -20,14 +20,10 @@ namespace ZhaoXi.View
     /// </summary>
     public partial class FirstPageView : UserControl
     {
-        public int Size { set; get; } = 5;
-
-        
-
         public FirstPageView()
         {
             InitializeComponent();
-            DataContext = this.Size;
+            DataContext = new ViewModel.FirstPageViewModel();
         }
     }
 }

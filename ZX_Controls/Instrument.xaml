@@ -1,14 +1,16 @@
-﻿<UserControl x:Class="Controls.Instrument"
+﻿<UserControl x:Class="ZX_Controls.Instrument"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:Controls"
+             xmlns:local="clr-namespace:ZX_Controls"
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="400">
-    <Grid>
-        <Ellipse Fill="Orange" x:Name="backEllispse"/>
-        <Canvas x:Name="mainCanvas" Width="{Binding  Path=Width, ElementName=backEllispse}" 
-                Height="{Binding Path=Height, ElementName=backEllispse}"/>
+
+    <Grid Background="LightBlue" x:Name="grid" 
+          Width="{Binding Width,ElementName=borde}" Height="{Binding Height,ElementName=borde}">
+        <Canvas x:Name="canvas" Background="Green">
+            <Path Data="M0 0 L200,100" Fill="#FFF4E50D" StrokeThickness="5"/>
+        </Canvas>
     </Grid>
 </UserControl>

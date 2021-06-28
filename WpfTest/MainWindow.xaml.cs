@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WpfTest.Model;
 using WpfTest.ViewModel;
 
 namespace WpfTest
@@ -21,42 +24,33 @@ namespace WpfTest
     /// </summary>
     public partial class MainWindow : Window
     {
+        public List<Student> Students { get; set; }
+
+
         public MainWindow()
         {
             InitializeComponent();
-            Draw();
-        }
-
-        //135~405.
-        //分为100份
-
-        void Draw()
-        {
-
-            double step = 270.0 / 100;
-            for (int i = 0; i < 101; i++)
+            DataContext = this;
+            Students = new List<Student>()
             {
-                int length = 0;
-                if ((i % 5) == 0)
-                {
-                    if ((i % 10) == 0)
-                        length = 20;
-                    else
-                        length = 15;
-                }
-                else
-                    length = 10;
-                Line line = new Line();
-                double arc = (135 + step * i) * Math.PI / 180;
-                line.X1 = 150 + 150 * Math.Cos(arc);
-                line.Y1 = 150 + 150 * Math.Sin(arc);
-
-                line.X2 = 150 + (150 - length) * Math.Cos(arc);
-                line.Y2 = 150 + (150 - length) * Math.Sin(arc);
-                line.Stroke = Brushes.Blue;
-                line.StrokeThickness = 3;
-                canvas.Children.Add(line);
-            }
+                new Student(){Name="zhang",Age=18,Address="河南"},
+                  new Student(){Name="wang",Age=19,Address="苏州"},
+                    new Student(){Name="li",Age=20,Address="山东"},
+                      new Student(){Name="zhao",Age=22,Address="上海"},
+                         new Student(){Name="zhang",Age=18,Address="河南"},
+                  new Student(){Name="wang",Age=19,Address="苏州"},
+                    new Student(){Name="li",Age=20,Address="山东"},
+                      new Student(){Name="zhao",Age=22,Address="上海"},
+                         new Student(){Name="zhang",Age=18,Address="河南"},
+                  new Student(){Name="wang",Age=19,Address="苏州"},
+                    new Student(){Name="li",Age=20,Address="山东"},
+                       new Student(){Name="zhang",Age=18,Address="河南"},
+                  new Student(){Name="wang",Age=19,Address="苏州"},
+                    new Student(){Name="li",Age=20,Address="山东"},
+                      new Student(){Name="zhao",Age=22,Address="上海"},
+                      new Student(){Name="zhao",Age=22,Address="上海"},
+            };
+           
         }
     }
 }
