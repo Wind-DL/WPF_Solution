@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfTest", "WpfTest\WpfTest.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ZX_Controls", "ZX_Controls\ZX_Controls.csproj", "{FDA1862C-AC19-4580-98D5-CCC9BDD32BC4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApp1", "WindowsFormsApp1\WindowsFormsApp1.csproj", "{04969D73-AFB3-4A62-AA2E-E5D40AFFD839}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{FDA1862C-AC19-4580-98D5-CCC9BDD32BC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FDA1862C-AC19-4580-98D5-CCC9BDD32BC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FDA1862C-AC19-4580-98D5-CCC9BDD32BC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04969D73-AFB3-4A62-AA2E-E5D40AFFD839}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04969D73-AFB3-4A62-AA2E-E5D40AFFD839}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04969D73-AFB3-4A62-AA2E-E5D40AFFD839}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04969D73-AFB3-4A62-AA2E-E5D40AFFD839}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

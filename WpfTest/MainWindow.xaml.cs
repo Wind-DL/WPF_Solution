@@ -24,33 +24,18 @@ namespace WpfTest
     /// </summary>
     public partial class MainWindow : Window
     {
-        public List<Student> Students { get; set; }
 
-
+        public List<Student> Students { set; get; } = new List<Student>();
         public MainWindow()
         {
             InitializeComponent();
+            Students = new List<Student>();
+            Students.Add(new Student { Name = "zhang", Age = 20, Address = "河南" });
+            Students.Add(new Student { Name = "zhang", Age = 20, Address = "河南" });
+            Students.Add(new Student { Name = "zhang", Age = 20, Address = "河南" });
+            Students.Add(new Student { Name = "zhang", Age = 20, Address = "河南" });
             DataContext = this;
-            Students = new List<Student>()
-            {
-                new Student(){Name="zhang",Age=18,Address="河南"},
-                  new Student(){Name="wang",Age=19,Address="苏州"},
-                    new Student(){Name="li",Age=20,Address="山东"},
-                      new Student(){Name="zhao",Age=22,Address="上海"},
-                         new Student(){Name="zhang",Age=18,Address="河南"},
-                  new Student(){Name="wang",Age=19,Address="苏州"},
-                    new Student(){Name="li",Age=20,Address="山东"},
-                      new Student(){Name="zhao",Age=22,Address="上海"},
-                         new Student(){Name="zhang",Age=18,Address="河南"},
-                  new Student(){Name="wang",Age=19,Address="苏州"},
-                    new Student(){Name="li",Age=20,Address="山东"},
-                       new Student(){Name="zhang",Age=18,Address="河南"},
-                  new Student(){Name="wang",Age=19,Address="苏州"},
-                    new Student(){Name="li",Age=20,Address="山东"},
-                      new Student(){Name="zhao",Age=22,Address="上海"},
-                      new Student(){Name="zhao",Age=22,Address="上海"},
-            };
-           
+
         }
     }
 }

@@ -13,7 +13,7 @@
         <ResourceDictionary Source="/Assets/Styles/DefaultStyle.xaml"/>
     </Window.Resources>
     <Grid>
-        <Border Background="#FF94AEF7" CornerRadius="10" BorderThickness="3" 
+        <Border Background="#007DFA" CornerRadius="10" BorderThickness="3" 
             OpacityMask="Black" MouseMove="Border_MouseMove">
             <Button x:Name="closeLogin" VerticalAlignment="Top" HorizontalAlignment="Right" 
                     Margin="0,8,8,0" Style="{StaticResource WindowControlButtonStyle}" 

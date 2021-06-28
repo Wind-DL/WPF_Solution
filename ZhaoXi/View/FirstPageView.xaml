@@ -233,7 +233,9 @@
                         </Grid.ColumnDefinitions>
                         <StackPanel VerticalAlignment="Center" Grid.ColumnSpan="2" Margin="0,-462,95,-462">
                             <TextBlock Text="HI,亲爱的小伙伴" Foreground="White" Margin="15,0,0,10"/>
-                            <TextBlock Text="松下（英文名称：Panasonic），是日本的一个跨国性公司，在全世界设有230多家公司，员工总数超过290,493人。其中在中国有54,000多人。2001年全年的销售总额为610多亿美元，为世界制造业500强的第26名。"
+                            <TextBlock Text="松下（英文名称：Panasonic），是日本的一个跨国性公司，在全世界设有230多家公司，
+                                       员工总数超过290,493人。其中在中国有54,000多人。2001年全年的销售总额为610多亿美元，
+                                       为世界制造业500强的第26名。"
                                        LineHeight="20" Margin="15,0,0,0" Foreground="#B3E9F1"
                                        TextWrapping="Wrap"
                                        />
@@ -310,76 +312,58 @@
                     <Hyperlink>详情</Hyperlink>
             </TextBlock>
 
-            <StackPanel Grid.Row="1">
-                    <Border Background="White" CornerRadius="10" Margin="0,5">
-                        <Border.Effect>
-                            <DropShadowEffect Color="Gray" ShadowDepth="0" BlurRadius="10" Opacity="0.4" Direction="0"/>
-                        </Border.Effect>
-                    <Grid Height="70">
-                        <Grid.ColumnDefinitions>
-
-                        </Grid.ColumnDefinitions>
-                    </Grid>
-                    </Border>
-                    <Border Background="White" CornerRadius="10"  Margin="0,5">
-                        <Border.Effect>
-                            <DropShadowEffect Color="Gray" ShadowDepth="0" BlurRadius="10" Opacity="0.4" Direction="0"/>
-                        </Border.Effect>
-                    <Grid Height="70">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="*"/>
-                            <ColumnDefinition Width="1.5*"/>
-                            <ColumnDefinition Width="3.5*"/>
-                        </Grid.ColumnDefinitions>
-                        
-                        <TextBlock Text="C#/.net架构师蜕变营" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#444"/>
-                        <lvc:PieChart Grid.Column="1" LegendLocation="Right" InnerRadius="15">
-                            <lvc:PieChart.Series>
-                                <lvcs:SeriesCollection>
-                                    <lvc:PieSeries Title="11" Values="12" DataLabels="False"/>
-                                    <lvc:PieSeries Title="22" Values="12" DataLabels="False"/>
-                                    <lvc:PieSeries Title="33" Values="12" DataLabels="False"/>
-                                    <lvc:PieSeries Title="44" Values="12" DataLabels="False"/>
-                                    <lvc:PieSeries Title="55" Values="12" DataLabels="False"/>
-                                </lvcs:SeriesCollection>
-                            </lvc:PieChart.Series>
-                            
-                            <lvc:PieChart.ChartLegend>
-                                <lvc:DefaultLegend BulletSize="10"/>
-                            </lvc:PieChart.ChartLegend>
-
-                            <lvc:PieChart.DataTooltip>
-                                <lvc:DefaultLegend BulletSize="10"/>
-                            </lvc:PieChart.DataTooltip>
-                        </lvc:PieChart>
-
-                        <UniformGrid Columns="5" Grid.Column="2">
-                            <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+            <ItemsControl ItemsSource="{Binding CourseSeriesList}" Grid.Row="1">
+                <ItemsControl.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel/>
+                    </ItemsPanelTemplate>
+                </ItemsControl.ItemsPanel>
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Border Background="White" CornerRadius="10" Margin="0,5">
+                            <Border.Effect>
+                                <DropShadowEffect Color="Gray" ShadowDepth="0" BlurRadius="10" Opacity="0.4" Direction="0"/>
+                            </Border.Effect>
+                            <Grid Height="70">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition/>
                                     <ColumnDefinition/>
+                                    <ColumnDefinition Width="3.5*"/>
                                 </Grid.ColumnDefinitions>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition/>
-                                    <RowDefinition/>
-                                </Grid.RowDefinitions>
-                                <TextBlock Text="云课题" />
-                                <TextBlock Text="161" Grid.Row="1"/>
-                                <TextBlock Text="|" Grid.Column="1"/>
-                                <TextBlock Text="75%" Grid.Column="1" Grid.Row="1"/>
-                            </Grid>
-                        </UniformGrid>
-                       
 
-                    </Grid>
-                </Border>
-            </StackPanel>
-            
-            
-            
+                                <TextBlock Text="{Binding CourseName}" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="#444"/>
+
+                                <lvc:PieChart Grid.Column="1" LegendLocation="Right" InnerRadius="12" Series="{Binding CourseSeriesList}">
+                                   
+                                    <lvc:PieChart.ChartLegend>
+                                        <lvc:DefaultLegend BulletSize="10"/>
+                                    </lvc:PieChart.ChartLegend>
+                                    <lvc:PieChart.DataTooltip>
+                                        <lvc:DefaultLegend BulletSize="10"/>
+                                    </lvc:PieChart.DataTooltip>
+                                </lvc:PieChart>
+
+                                <UniformGrid Columns="5" Grid.Column="2">
+                                    <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <TextBlock Text="云课堂 "/>
+                                        <TextBlock Text="162" Grid.Row="1"/>
+                                        <TextBlock Text="|" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                        <TextBlock Text="75%" Grid.Column="1" Grid.Row="1"/>
+                                    </Grid>
+                                </UniformGrid>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
         </Grid>
-        
-        
-        
     </Grid>
 </UserControl>
