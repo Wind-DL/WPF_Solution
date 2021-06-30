@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Expression.Controls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -24,18 +25,22 @@ namespace WpfTest
     /// </summary>
     public partial class MainWindow : Window
     {
-
         public List<Student> Students { set; get; } = new List<Student>();
         public MainWindow()
         {
             InitializeComponent();
-            Students = new List<Student>();
-            Students.Add(new Student { Name = "zhang", Age = 20, Address = "河南" });
-            Students.Add(new Student { Name = "zhang", Age = 20, Address = "河南" });
-            Students.Add(new Student { Name = "zhang", Age = 20, Address = "河南" });
-            Students.Add(new Student { Name = "zhang", Age = 20, Address = "河南" });
+            Students.Add(new Student { Name = "-40" });
+            Students.Add(new Student { Name = "-30" });
+            Students.Add(new Student { Name = "-20" });
+            Students.Add(new Student { Name = "-10" });
+            Students.Add(new Student { Name = "0" });
+            Students.Add(new Student { Name = "10" });
+            Students.Add(new Student { Name = "20" });
+            Students.Add(new Student { Name = "30" });
+            Students.Add(new Student { Name = "40" });
             DataContext = this;
-
+            LineArrow lineArrow = new LineArrow();
+        
         }
     }
 }

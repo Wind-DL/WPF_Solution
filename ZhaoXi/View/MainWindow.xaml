@@ -139,10 +139,9 @@
                 <StackPanel Orientation="Horizontal" Grid.Row="1" HorizontalAlignment="Left" Margin="40,0,0,0">
                     <RadioButton Content="首页" Style="{StaticResource NavButtonStyle}" 
                                  Command="{Binding NavChangedCommand}" CommandParameter="FirstPageView"/>
-                    <RadioButton Content="关于我们" Style="{StaticResource NavButtonStyle}"
-                                 Command="{Binding NavChangedCommand}" CommandParameter="CoursePage"
-                                 />
-                    <RadioButton Content="课程中心" Style="{StaticResource NavButtonStyle}"/>
+                    <RadioButton Content="关于我们" Style="{StaticResource NavButtonStyle}" />
+                    <RadioButton Content="课程中心" Style="{StaticResource NavButtonStyle}" Command="{Binding NavChangedCommand}"
+                                 CommandParameter="CoursePage" />
                     <RadioButton Content="诚聘英才" Style="{StaticResource NavButtonStyle}"/>
                     <RadioButton Content="个人中心" Style="{StaticResource NavButtonStyle}"/>
                 </StackPanel>
@@ -161,9 +160,6 @@
                     <TranslateTransform X="250" x:Name="tt"/>
                 </Border.RenderTransform>
                 <Grid>
-                    
-                        
-                <Grid.Resources>    </Grid.Resources>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="230"/>
                         <RowDefinition />
@@ -171,7 +167,6 @@
                     <Button Content="Close" VerticalAlignment="Top" HorizontalAlignment="Left"
                             Width="50" Height="50" Background="LightBlue" x:Name="CloseUserInforButton"
                             />
-
 
                     <Border Width="120" Height="120" CornerRadius="60">
                         <Border.Background>

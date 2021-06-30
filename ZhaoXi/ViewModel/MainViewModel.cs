@@ -36,7 +36,6 @@ namespace ZhaoXi.ViewModel
             NavChangedCommand = new CommandBase();
             NavChangedCommand.ExecuteCommand = new Action<object>(DoNavChanged);
            //  NavChangedCommand.CanExecute = new Func<object, bool>((obj) => true);
-           
         }
 
         private void DoNavChanged(object obj)

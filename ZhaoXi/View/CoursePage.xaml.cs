@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ZhaoXi.ViewModel;
 
 namespace ZhaoXi.View
 {
@@ -23,6 +24,7 @@ namespace ZhaoXi.View
         public CoursePage()
         {
             InitializeComponent();
+            DataContext = new CoursePageViewModel();
         }
     }
 }

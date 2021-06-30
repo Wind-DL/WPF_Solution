@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -34,31 +36,39 @@ namespace ZX_Controls
         static void Callback(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             Instrument instrument = d as Instrument;
-            instrument.Refresh(Int32.Parse(e.NewValue.ToString()));
-
+            instrument.Refresh();
         }
 
+        List<Nums> Nums = new List<Nums>();
         public Instrument()
         {
             InitializeComponent();
             SizeChanged += Instrument_SizeChanged;
+            Nums.Add(new ZX_Controls.Nums { Num = -40 });
+            Nums.Add(new ZX_Controls.Nums { Num = -30 });
+            Nums.Add(new ZX_Controls.Nums { Num = -20 });
+            Nums.Add(new ZX_Controls.Nums { Num = -10 });
+            Nums.Add(new ZX_Controls.Nums { Num = 0 });
+            Nums.Add(new ZX_Controls.Nums { Num = 10 });
+            Nums.Add(new ZX_Controls.Nums { Num = 20 });
+            Nums.Add(new ZX_Controls.Nums { Num = 30 });
+            Nums.Add(new ZX_Controls.Nums { Num = 40 });
         }
 
         private void Instrument_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             double min = Math.Min(RenderSize.Width, RenderSize.Height);
-            grid.Width = min;
-            grid.Height = min;
-            Refresh(Value);
+            back.Width = min;
+            back.Height = min;
+            Refresh();
         }
 
-        void Refresh(int angle)
+        void Refresh()
         {
-            bool b1 = double.IsNaN(grid.Width);
-            bool b2 = double.IsNaN(grid.Height);
-            if (!b1&&!b2)
+            bool b = double.IsNaN(back.Width);
+            if (!b)
             {
-                double radius = grid.Width / 2;
+                double radius = back.Width / 2;
                 canvas.Children.Clear();
                 int min = -20;
                 int max = 80;
@@ -86,12 +96,25 @@ namespace ZX_Controls
                     line.X2 = radius + (radius - length - 3) * Math.Cos(arc);
                     line.Y2 = radius + (radius - length - 3) * Math.Sin(arc);
                     line.Stroke = Brushes.White;
-                    line.StrokeThickness = 1;
+                    line.StrokeThickness = 2;
                     canvas.Children.Add(line);
                 }
-               // textBlock.Text = angle.ToString();
-               // rotate.Angle = angle;
+
+                //1，把path包在了canvas内，显示不出来，不知道为什么？
+                //2，添加动画时，对象使用错误了，对动画的使用不理解。
+                pointerPath.Fill = Brushes.Blue;
+                double rate = 1 - 5 / radius;
+                pointerPath.RenderTransformOrigin = new Point(0.5, 0.5);
+                string pathData = string.Format("M{0},0 L{1},{0} {2},{0}", radius, radius - 5, radius + 5);
+                DoubleAnimation ad = new DoubleAnimation(step * Value, new Duration(TimeSpan.FromMilliseconds(500)));
+                rtPointer.BeginAnimation(RotateTransform.AngleProperty, ad);
+                pointerPath.Data = Geometry.Parse(pathData);
             }
         }
+    }
+
+    public class Nums
+    {
+        public int Num { get; set; }
     }
 }

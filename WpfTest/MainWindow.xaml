@@ -1,4 +1,4 @@
-﻿<Window x:Class="WpfTest.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -7,9 +7,13 @@
         xmlns:model="clr-namespace:WpfTest.Model"
         xmlns:converter="clr-namespace:WpfTest.Converter"
         xmlns:zx="clr-namespace:ZX_Controls;assembly=ZX_Controls"
+        xmlns:ec="http://schemas.microsoft.com/expression/2010/controls" 
+        xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
+        x:Class="WpfTest.MainWindow"
+    
         
         mc:Ignorable="d"
-        Title="MainWindow" Height="300" Width="500">
+        Title="MainWindow" Height="440" Width="500">
     <Window.Resources>
         <Storyboard x:Key="story">
             <DoubleAnimation Duration="0:0:1" From="0" To="200" Storyboard.TargetName="textBox" Storyboard.TargetProperty="Width"/>
@@ -24,13 +28,40 @@
                 </UniformGrid>
             </Border>
         </DataTemplate>
-        
+        <Storyboard x:Key="Storyboard1"/>
     </Window.Resources>
-     
-  
+    <Window.Triggers>
+        <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+            <BeginStoryboard Storyboard="{StaticResource Storyboard1}"/>
+        </EventTrigger>
+    </Window.Triggers>
+
     <Grid>
-        <ListBox x:Name="listBox" ItemsSource="{Binding Students}" ItemTemplate="{StaticResource d_template}">
-            
-        </ListBox>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Path Data="M20,20 L400,20" x:Name="path" Fill="Red" Stroke="Red"/>
+        <ec:PathListBox x:Name="pathListBox" ItemsSource="{Binding Students}">
+
+            <ec:PathListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}" Margin="10"/>
+                </DataTemplate>
+            </ec:PathListBox.ItemTemplate>
+
+            <ec:PathListBox.LayoutPaths>
+                <ec:LayoutPath SourceElement="{Binding ElementName=path}" 
+                               Distribution="Padded"  Orientation="OrientToPath"
+                               />
+            </ec:PathListBox.LayoutPaths>
+
+        </ec:PathListBox>
+
+        <ed:Arc x:Name="arc" ArcThickness="8" ArcThicknessUnit="Pixel" EndAngle="120"
+               StartAngle="-120" Width="100" Height="100" Fill="#770000FF"
+               Stretch="None"  Grid.Row="2" />
+
     </Grid>
+    
 </Window>

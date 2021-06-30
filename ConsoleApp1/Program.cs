@@ -9,12 +9,13 @@ using System.Threading.Tasks;
 
 namespace ConsoleApp1
 {
+    public delegate int deleteCount(string str);
+
     class Program
     {
         static void Main(string[] args)
         {
-            
-            
+           
 
             Console.ReadLine();
         }

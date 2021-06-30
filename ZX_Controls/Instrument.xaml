@@ -4,13 +4,30 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:ZX_Controls"
+             xmlns:ec="http://schemas.microsoft.com/expression/2010/controls"
+             xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
              mc:Ignorable="d" 
              d:DesignHeight="400" d:DesignWidth="400">
 
-    <Grid Background="LightBlue" x:Name="grid" 
-          Width="{Binding Width,ElementName=borde}" Height="{Binding Height,ElementName=borde}">
-        <Canvas x:Name="canvas" Background="Green">
-            <Path Data="M0 0 L200,100" Fill="#FFF4E50D" StrokeThickness="5"/>
-        </Canvas>
+    <Grid Background="LightBlue" x:Name="grid">
+        <Ellipse x:Name="back">
+            <Ellipse.Effect>
+                <DropShadowEffect ShadowDepth="15" Color="#B2000000" Opacity="0.5" Direction="-50"/>
+            </Ellipse.Effect>
+            <Ellipse.Fill>
+                <LinearGradientBrush EndPoint="1,1" StartPoint="0,0">
+                    <GradientStop Color="#FF4D4ED3" Offset="1"/>
+                    <GradientStop Color="#FF7165E0" Offset="0.007"/>
+                    <GradientStop Color="#FFD5D3F0" Offset="0.427"/>
+                </LinearGradientBrush>
+            </Ellipse.Fill>
+        </Ellipse>
+        <Canvas x:Name="canvas" Width="{Binding Width,ElementName=back}" Height="{Binding Height, ElementName=back}"/>
+        <Path  x:Name="pointerPath"  Width="{Binding Width,ElementName=back}" Height="{Binding Height, ElementName=back}"
+                  >
+            <Path.RenderTransform>
+                <RotateTransform x:Name="rtPointer"/>
+            </Path.RenderTransform>
+        </Path>
     </Grid>
 </UserControl>

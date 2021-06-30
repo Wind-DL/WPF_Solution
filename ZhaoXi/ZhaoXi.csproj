@@ -93,6 +93,8 @@
     <Compile Include="Common\MD5Hepler.cs" />
     <Compile Include="Common\NotifyProperty.cs" />
     <Compile Include="Common\NotNullValidationRule.cs" />
+    <Compile Include="Converter\BoolToArrowConverter.cs" />
+    <Compile Include="Converter\BoolToBrushConverter.cs" />
     <Compile Include="Converter\GenderConverter.cs" />
     <Compile Include="DataService\DataBase.cs" />
     <Compile Include="EnityDto\UserEntity.cs" />
@@ -101,9 +103,11 @@
     <Compile Include="Model\PasswordHelper.cs" />
     <Compile Include="Model\SeriesModel.cs" />
     <Compile Include="Model\UserModel.cs" />
+    <Compile Include="ViewModel\CoursePageViewModel.cs" />
     <Compile Include="ViewModel\FirstPageViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="Model\CategoryItemModel.cs" />
     <Compile Include="View\CoursePage.xaml.cs">
       <DependentUpon>CoursePage.xaml</DependentUpon>
     </Compile>
