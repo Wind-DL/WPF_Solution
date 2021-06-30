@@ -33,7 +33,7 @@ namespace ZhaoXi.ViewModel
                 while (true)
                 {
                     Random random = new Random(Guid.NewGuid().GetHashCode());
-                    _instrument = random.Next(-2, 81);
+                    Instrument = random.Next(-50,51);
                     Console.WriteLine(_instrument);
                     Thread.Sleep(1000);
                 }

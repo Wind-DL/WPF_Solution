@@ -1,19 +1,40 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using WpfTest.Model;
+using System.Windows;
 
 namespace WpfTest.ViewModel
 {
-    class MainViewModel
+    class MainViewModel:Common.NotifyProperty
     {
-    
+        public Common.CommandBase Command { set; get; } = new Common.CommandBase();
+
+        private FrameworkElement _element;
+
+        public FrameworkElement Element
+        {
+            get { return _element; }
+            set
+            {
+                _element = value;
+                OnPropertyChanged();
+            }
+        }
+
         public MainViewModel()
         {
-            
+            Command.DoExcute = Excute;
+            _element = new FrameworkElement();
+        }
+
+        void Excute(object obj)
+        {
+            Type type = Type.GetType("WpfTest.View." + obj.ToString());
+            ConstructorInfo constructorInfo = type.GetConstructor(Type.EmptyTypes);
+            Element = (FrameworkElement)constructorInfo.Invoke(null);
         }
     }
 }

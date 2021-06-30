@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace WpfTest.View
 {
     /// <summary>
-    /// Page1.xaml 的交互逻辑
+    /// Query.xaml 的交互逻辑
     /// </summary>
-    public partial class Page1 : UserControl
+    public partial class Query : UserControl
     {
-        public Page1()
+        public Query()
         {
             InitializeComponent();
         }

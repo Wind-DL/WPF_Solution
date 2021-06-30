@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace WpfTest.View
 {
     /// <summary>
-    /// Page2.xaml 的交互逻辑
+    /// Compare.xaml 的交互逻辑
     /// </summary>
-    public partial class Page2 : UserControl
+    public partial class Compare : UserControl
     {
-        public Page2()
+        public Compare()
         {
             InitializeComponent();
         }
