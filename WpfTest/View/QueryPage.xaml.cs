@@ -23,6 +23,7 @@ namespace WpfTest.View
         public Query()
         {
             InitializeComponent();
+            DataContext = new ViewModel.QueryPageViewModel();
         }
     }
 }

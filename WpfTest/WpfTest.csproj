@@ -87,10 +87,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Common\CommandBase.cs" />
+    <Compile Include="Model\QueryPageModel.cs" />
     <Compile Include="MyControls\UintQuery.xaml.cs">
       <DependentUpon>UintQuery.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModel\MainViewModel.cs" />
+    <Compile Include="ViewModel\QueryPageViewModel.cs" />
     <Compile Include="View\ComparePage.xaml.cs">
       <DependentUpon>ComparePage.xaml</DependentUpon>
     </Compile>
@@ -130,7 +132,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Converter\" />
-    <Folder Include="Model\" />
   </ItemGroup>
   <ItemGroup>
     <Page Include="MyControls\UintQuery.xaml">

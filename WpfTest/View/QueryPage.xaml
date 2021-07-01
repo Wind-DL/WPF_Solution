@@ -39,10 +39,10 @@
             </StackPanel>
               
             <UniformGrid Background="White" Grid.Row="1">
-                <myControls:UintQuery Margin="2,1,1,0.5"/>
-                <myControls:UintQuery Margin="1,1,2,0.5"/>
-                <myControls:UintQuery Margin="2,0.5,1,1"/>
-                <myControls:UintQuery Margin="1,0.5,2,1" MyProperty="10"/>
+                <myControls:UintQuery Margin="2,1,1,0.5" MachineName="铸造机"/>
+                <myControls:UintQuery Margin="1,1,2,0.5" MachineName="锻压机1"/>
+                <myControls:UintQuery Margin="2,0.5,1,1" MachineName="锻压机2"/>
+                <myControls:UintQuery Margin="1,0.5,2,1"  MachineName="锻压机3"/>
             </UniformGrid>
       
     </Grid>

@@ -13,14 +13,15 @@
     <UserControl.Resources>
         <Style x:Key="buttonStyle" TargetType="Button">
             <Setter Property="Foreground" Value="WhiteSmoke"/>
-            <Setter Property="FontSize" Value="25"/>
-            <Setter Property="Margin" Value="20,0,0,10"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Margin" Value="25,3,0,3"/>
+            <Setter Property="VerticalAlignment" Value="Top" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="Button">
-                        <Border Background="Black" BorderThickness="1" BorderBrush="White" CornerRadius="5"
-                                VerticalAlignment="Center" HorizontalAlignment="Center" x:Name="back">
-                            <ContentPresenter Margin="5"/>
+                        <Border Background="Black" BorderThickness="2" BorderBrush="#FFF79E11" CornerRadius="5"
+                                                x:Name="back">
+                            <ContentPresenter Margin="12,3,12,3"/>
                         </Border>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsPressed" Value="True">
@@ -31,6 +32,12 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style x:Key="textBlockStyle" TargetType="TextBlock">
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="Foreground" Value="WhiteSmoke"/>
+        </Style>
+        
     </UserControl.Resources>
    
         <Grid x:Name="Grid_back" Background="Black">
@@ -40,8 +47,8 @@
                 <RowDefinition Height="2*"/>
             </Grid.RowDefinitions>
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="铸造机" Foreground="WhiteSmoke" VerticalAlignment="Center" FontSize="40" Margin="5"
-                       Background="Black"
+            <TextBlock Text="{Binding RelativeSource={RelativeSource AncestorType=UserControl ,Mode=FindAncestor},Path=MachineName}"
+                       Foreground="WhiteSmoke" VerticalAlignment="Center" FontSize="40" Margin="5" Background="Black"
                        />
                 <Grid>
                     <Grid.RowDefinitions>
@@ -53,7 +60,7 @@
                     <mec:PathListBox  Grid.Row="1" ItemsSource="{Binding TimeValues}">
                         <mec:PathListBox.ItemTemplate >
                             <DataTemplate>
-                                <TextBlock Text="{Binding Value}" Foreground="WhiteSmoke"/>
+                                <TextBlock Text="{Binding Value}" Foreground="WhiteSmoke" FontSize="14"/>
                             </DataTemplate>
                         </mec:PathListBox.ItemTemplate>
                         <mec:PathListBox.LayoutPaths>
@@ -81,13 +88,13 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="50,0,0,0">
-                    <TextBlock Text="当日实时稼动率：" VerticalAlignment="Center" FontSize="30" Foreground="WhiteSmoke"/>
-                    <TextBlock Text="0.00%" VerticalAlignment="Center" FontSize="30" Foreground="WhiteSmoke"/>
+                    <TextBlock Text="当日实时稼动率：" Style="{StaticResource textBlockStyle}"/>
+                    <TextBlock Text="0.00%" Style="{StaticResource textBlockStyle}"/>
                     <Button Content="日稼动率图表" Style="{StaticResource buttonStyle}"/>
-                </StackPanel>
+            </StackPanel>
                 <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Grid.Row="1" HorizontalAlignment="Left" Margin="50,0,0,0">
-                    <TextBlock Text="当月累计稼动率：" VerticalAlignment="Center" FontSize="30" Foreground="WhiteSmoke"/>
-                    <TextBlock Text="0.00%" VerticalAlignment="Center" FontSize="30" Foreground="WhiteSmoke"/>
+                    <TextBlock Text="当月累计稼动率：" Style="{StaticResource textBlockStyle}"/>
+                    <TextBlock Text="0.00%" Style="{StaticResource textBlockStyle}"/>
                     <Button Content="月稼动率图表" Style="{StaticResource buttonStyle}"/>
                 </StackPanel>
             </Grid>

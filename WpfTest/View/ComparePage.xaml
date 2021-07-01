@@ -8,8 +8,22 @@
              xmlns:lvcs="clr-namespace:LiveCharts;assembly=LiveCharts"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <LinearGradientBrush x:Key="ColorBrush" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="Red" Offset="0.024"/>
+            <GradientStop Color="#FFA40BE4" Offset="0.938"/>
+            <GradientStop Color="#FFA29205" Offset="0.187"/>
+            <GradientStop Color="#FFF3F405" Offset="0.378"/>
+            <GradientStop Color="#FF04ED30" Offset="0.53"/>
+            <GradientStop Color="#FE0A7DE8" Offset="0.653"/>
+            <GradientStop Color="#FE0B16E8" Offset="0.791"/>
+        </LinearGradientBrush>
+
+    </UserControl.Resources>
     <Grid>
-        <TextBlock Text="稼动率对比" FontSize="25" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-     
+        <TextBlock Text="稼动率对比" FontSize="25"
+                   VerticalAlignment="Center" HorizontalAlignment="Center" 
+                   Foreground="{DynamicResource ColorBrush}"/>
+
     </Grid>
 </UserControl>
