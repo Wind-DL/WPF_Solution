@@ -46,7 +46,8 @@
                          CommandParameter="Compare" GroupName="menu"
                          />
         </StackPanel>
-
-            <ContentControl Grid.Row="1" Content="{Binding Element}"/>
+        <Viewbox Stretch="Fill" Grid.Row="1">
+            <ContentControl Content="{Binding Element}"/>
+        </Viewbox>
     </Grid>
 </Window>

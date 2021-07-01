@@ -6,6 +6,8 @@
              xmlns:local="clr-namespace:WpfTest.MyControls"
              xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
              xmlns:lvcs="clr-namespace:LiveCharts;assembly=LiveCharts"
+             xmlns:mec="http://schemas.microsoft.com/expression/2010/controls"
+             xmlns:med="http://schemas.microsoft.com/expression/2010/drawing"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <UserControl.Resources>
@@ -30,7 +32,7 @@
             </Setter>
         </Style>
     </UserControl.Resources>
-    <Grid>
+   
         <Grid x:Name="Grid_back" Background="Black">
             <Grid.RowDefinitions>
                 <RowDefinition Height="1*"/>
@@ -46,24 +48,32 @@
                         <RowDefinition Height="3*"/>
                         <RowDefinition Height="2*"/>
                     </Grid.RowDefinitions>
-                    <Rectangle Width="650" Fill="LimeGreen" Margin="20,5,20,0"/>
-                    <TextBox Text="时间" Grid.Row="1" VerticalAlignment="Top"/>
+                    <Rectangle Width="650" Fill="LimeGreen" Margin="20,5,30,0"/>
+                    <Path Data="M20,8 L670,8" Grid.Row="1" x:Name="path"/>
+                    <mec:PathListBox  Grid.Row="1" ItemsSource="{Binding TimeValues}">
+                        <mec:PathListBox.ItemTemplate >
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Value}" Foreground="WhiteSmoke"/>
+                            </DataTemplate>
+                        </mec:PathListBox.ItemTemplate>
+                        <mec:PathListBox.LayoutPaths>
+                            <mec:LayoutPath Distribution="Even" Orientation="OrientToPath" 
+                                            SourceElement="{Binding ElementName=path}"/>
+                        </mec:PathListBox.LayoutPaths>
+                    </mec:PathListBox>
                 </Grid>
 
             </StackPanel>
 
-            <lvc:CartesianChart MinHeight="200" Grid.Row="1" Background="Transparent">
+            <lvc:CartesianChart MinHeight="200" Grid.Row="1">
                     
                     <lvc:CartesianChart.Series>
                         <lvc:LineSeries Values="30,2,50,4,5,20" StrokeThickness="3" Stroke="Orange"
-                                     LineSmoothness="1" DataLabels="True" Fill="Transparent"
+                                     LineSmoothness="1" DataLabels="True"
                                     />
                     </lvc:CartesianChart.Series>
-                <lvc:CartesianChart.AxisX>
-                    <lvc:Axis IsEnabled="False"/>
-                </lvc:CartesianChart.AxisX>
-               
-                </lvc:CartesianChart>
+                
+            </lvc:CartesianChart>
             
             <Grid Grid.Row="2">
                 <Grid.RowDefinitions>
@@ -82,5 +92,5 @@
                 </StackPanel>
             </Grid>
         </Grid>
-    </Grid>
+   
 </UserControl>
